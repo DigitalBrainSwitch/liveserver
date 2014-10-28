@@ -153,7 +153,7 @@ $(document).ready(function() {
 	<!-- jquery -->
 <script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery.validate.min.js"></script>
 <script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery.validate.js"></script>
-<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery-1.11.1.js"></script>
+<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery-1.11.1.js"></script> 
 <script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery-ui.js"></script>
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/examples/shared/jquery-ui/jquery-ui.min.js"></script>
 <!--script type="text/javascript" src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.js"></script-->
