@@ -8,33 +8,6 @@
 	//include "http://www.myliferocket.com/ajaxfiles/reportExperiment.php";
 ?>
 
-<script>
-$(document).ready(function() {
-	
-	$('#myTab a').click(function (e) {
-    	//alert("mytab clicked");
-      
-    	e.preventDefault();
-    	$(this).tab('show');
-    	//alert("active tab="+$('.nav-tabs .active').text());
-    	
-    	        
-
- 		if($('.nav-tabs .active').text()=="Detail")
- 		{
- 			//$("#show-daily-charts").empty();
-	 		showResults();  
-	 		//$('[name="show-daily-charts"]').attr("style", "visibility: hidden");
-	 		//$('[name="show-daily-charts"]').attr("style", "visibility: visible");			
- 		}
-
-
-   });
-	
-
-});
-
-</script>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="http://www.myliferocket.com/flot/examples/examples.css" type="text/css">
@@ -149,19 +122,48 @@ $(document).ready(function() {
 </style>
 
 <!-- Javascript -->
+
+
+<script>
+$(document).ready(function() {
+	
+	$('#myTab a').click(function (e) {
+    	//alert("mytab clicked");
+      
+    	e.preventDefault();
+    	$(this).tab('show');
+    	//alert("active tab="+$('.nav-tabs .active').text());
+    	
+    	        
+
+ 		if($('.nav-tabs .active').text()=="Detail")
+ 		{
+ 			//$("#show-daily-charts").empty();
+	 		showResults();  
+	 		//$('[name="show-daily-charts"]').attr("style", "visibility: hidden");
+	 		//$('[name="show-daily-charts"]').attr("style", "visibility: visible");			
+ 		}
+   });
+	
+
+});
+
+</script>
+
 	<!-- jquery -->
-<script language="javascript" type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
-<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
-<script language="javascript" type="text/javascript" src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery.validate.min.js"></script>
+<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery-1.11.1.js"></script>
+<script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery-ui.js"></script>
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/examples/shared/jquery-ui/jquery-ui.min.js"></script>
 <!--script type="text/javascript" src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.js"></script-->
 
 	<!-- flot -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
 
 	<!-- datepicker -->
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.js"></script>
@@ -170,18 +172,15 @@ $(document).ready(function() {
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/legacy.js"></script>
 
 	<!-- uislider -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/uislider/jquery.nouislider.min.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/uislider/jquery.nouislider.min.js"></script>
 
 	<!-- bootstrap -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/wp-includes/js/bootstrap.min.js"></script>
-<script language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/bootstrap-switch.min.js'></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/wp-includes/js/bootstrap.min.js"></script>
+<script async language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/bootstrap-switch.min.js'></script>
 
 	<!-- showExperimentResultsComparison -->
-<!--script src="http://localhost/ajaxfiles/showExperimentResults.js"></script-->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
+<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
 
-	<!-- reportExperiment -->
-<!--script src="http://localhost/ajaxfiles/reportExperiment.js"></script-->
 
 <?php if ( is_user_logged_in() && bp_experiment_is_member() ) : ?>
 
@@ -1082,15 +1081,11 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 	var values_js =  <?php echo json_encode($variableValues); ?>;
 	var valuesPP_js =  <?php echo json_encode($variableValuesPP); ?>;
 
-	//$variableValuesPP[$y][$x]
 
 	//alert("values[0].length="+values_js[0].length);		
 	//alert("valuesPP_js[0].length="+valuesPP_js[0].length);	
 
 	var times =  <?php echo json_encode($dateTimes); ?>;
-
-	//var values1 = <?php echo json_encode($variableValues[0]); ?>;
-	//var values2 = <?php echo json_encode($variableValues[1]); ?>;
 
 	var values1 =  <?php echo json_encode($variableValues[$variable_chart1_index]); ?>;
 	var values2 =  <?php echo json_encode($variableValues[$variable_chart2_index]); ?>;
@@ -1114,13 +1109,8 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 	var valuesPP =  <?php echo json_encode($variableValuesPP); ?>;
 
 	valuesPP[0] =  <?php echo json_encode($variableValuesPP[0]); ?>;
-	//alert("main page, valuesPP[0].length="+valuesPP[0].length);
-	//alert("main page, valuesPP[1].length="+valuesPP[1].length);
 
 	var timesPP =  <?php echo json_encode($dateTimesPP); ?>;
-
-	//var values1 = <?php echo json_encode($variableValues[0]); ?>;
-	//var values2 = <?php echo json_encode($variableValues[1]); ?>;
 
 	var valuesPP1 =  <?php echo json_encode($variableValuesPP[$variable_chart1_index]); ?>;
 	var valuesPP2 =  <?php echo json_encode($variableValuesPP[$variable_chart2_index]); ?>;
@@ -1345,16 +1335,6 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 						+"</h3>  </div>").appendTo("#show-cumulative-charts");
 					}
 					
-					/*
-					if ($("#content-cumulative-pp").length == 0)
-					{
-						$("<div id='content-cumulative-pp' name='content-cumulative-pp'> <h3>My results ("+nameVar1+ " vs "+nameVar2+")"
-						+"</h3>  </div>").appendTo("#show-cumulative-charts");
-					}			
-				*/	
-		
-		
-		
 				if (typeVar1 == "binary" && typeVar2 == "binary") 
 				{
 					var count1 = 0;
@@ -1735,8 +1715,6 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 					
 					var line1 = "Correlation value";
 					var line2 = "Correlation value";
-					
-
 
 					var totalCount1 = 0;
 					var totalCount2 = 0;
@@ -1750,42 +1728,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 					var chartCount2;
 					var avgTotalLabel = "Average";
 							
-					/*
-					
-					if(user_correlationValue==0)
-					{
-						line1 = nameVar1+" is not linked with "+nameVar2+".";
-						line2 = "";
-					}
-					
-					else if(user_correlationValue>0)
-					{
-						line1 = nameVar1+" is positively linked with "+nameVar2+".";
-						line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-						
-						
-					}
-					
-					else if(user_correlationValue<0)
-					{
-						line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-						line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-					}
-					
-					
-					$("<h3> Link between "+nameVar1+" and "+ nameVar2+" </h3><div class='col-md-6' id='cumulative-left'></div>").appendTo("#show-cumulative-charts");
-					
-					$("<div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-					"</div></div>").appendTo("#cumulative-left");
-					
-					$("<div class='col-md-6'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
-						
-					
-					$("<div><span style='color:black; font-size:0.8em'>"+line1+"</span> </div>"+line2).appendTo("#cumulative-right");
-					
-					*/
-					
-
+	
 					for (var i = 0; i < valuesPP1.length; ++i) 
 					{
 						
@@ -1874,10 +1817,6 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 		                            
 		</div>
 
-		<!--div id="show-cumulative-pp-charts">
-		                            
-		</div-->
-		
 		<div id="show-comparison-charts" class='row'>
                  
         </div>
@@ -1898,11 +1837,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
             
 				<div name="show-daily-charts" id="show-daily-charts">
 	               
-				</div> 
-				
-				<!--div id="show-daily-charts-pp">
-	               
-				</div-->           
+				</div>       
 	            
 	            <div name="show-comparison-daily-charts" id="show-comparison-daily-charts">
 	                    
@@ -1925,32 +1860,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 				<script type="text/javascript">
 					$(document).ready(function() {
 				
-						/*
-	    				if ($("#content-daily").length != 0)
-						{
-							$("#content-daily").remove();
-						}
-						*/
-						/*
-	    				if ($("#content-daily-pp").length != 0)
-						{
-							$("#content-daily-pp").remove();
-						}					
-						*/
 						
-						/*
-						
-						$("<div class='col-md-6 row' id='daily-left-pp'><h5> Results: "+nameVar1+" vs "+ nameVar2+" <h5></div>").appendTo("#show-daily-charts-pp");
-						
-						$("<div class='col-xs-6' id='content-daily-pp' name='content-daily-pp'>"+
-						"<div id='legendcontainer-daily-pp'></div> <div id='placeholder-daily-pp' class='demo-placeholder'></div>"
-						+" <span id='hoverdata'></span> <span id='clickdata'></span>    </div>").appendTo("#show-daily-charts-pp");
-						*/
-						
-	
-						//var placeholder = $("#placeholder-daily");
-						//var plot;
-				
 						if (typeVar1 == "binary" && typeVar2 == "binary") 
 						{
 				
@@ -2525,15 +2435,12 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 
     </div>
      
-    <script>
-	    $(function () {
-	    	$('#myTab a:first').tab('show');
-	    });
-    </script>	
-	
 
 <script type="text/javascript">
 
+    $(function () {
+    	$('#myTab a:first').tab('show');
+    });
 
 $( ".vis-select" ).change(function() {
   showResults();
