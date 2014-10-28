@@ -2,15 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <!-- Optionally use Animate.css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css">
-<!--link rel="stylesheet" href="http://digitalbrain-test.lancs.ac.uk/liquidslider/css/liquid-slider.css"-->
+<link rel="stylesheet" href="http://www.myliferocket.com/css/animate.min.css">
 <link rel="stylesheet" href="http://www.myliferocket.com/liquidslider/css/liquid-slider.css">
-<script language="javascript" type="text/javascript" src='https://code.jquery.com/jquery-1.11.1.min.js' ></script>
-<script language="javascript" type="text/javascript" src='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js' ></script>
-<!--link rel="stylesheet" href="http://localhost/liquidslider/css/liquid-slider.css"-->
-
-<!--link rel="stylesheet" href="http://localhost/wordpress/liquidslider/examples/assets/prism.css"-->
-<!--link rel="stylesheet" href="http://digitalbrain-test.lancs.ac.uk/liquidslider/examples/assets/styles.css"-->
+<script language="javascript" type="text/javascript" src='http://www.myliferocket.com/jquery/jquery-1.11.1.min.js' ></script>
+<script language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-includes/js/bootstrap.min.js' ></script>
 
 <script language="javascript" type="text/javascript">
 
@@ -501,12 +496,9 @@ $(document).ready(function(){
 
 
 <footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
-<!--script src="http://digitalbrain-test.lancs.ac.uk/liquidslider/js/jquery.liquid-slider.min.js"></script-->
+<script src="http://www.myliferocket.com/jquery/jquery-1.11.1.min.js"></script>
+<script src="http://www.myliferocket.com/jquery/jquery.touchSwipe.min.js"></script>
 <script src="http://www.myliferocket.com/liquidslider/js/jquery.liquid-slider.min.js"></script>
-<!--script src="http://localhost/liquidslider/js/jquery.liquid-slider.min.js"></script-->
 <script>
 /**
  * If you need to access the internal property or methods, use this:
@@ -724,4 +716,3 @@ function invitesPrevious() {
 
 </script>
 </footer>
-<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js' />
