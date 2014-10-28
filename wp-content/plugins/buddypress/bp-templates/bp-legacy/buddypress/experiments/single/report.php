@@ -124,31 +124,7 @@
 <!-- Javascript -->
 
 
-<script>
-$(document).ready(function() {
-	
-	$('#myTab a').click(function (e) {
-    	//alert("mytab clicked");
-      
-    	e.preventDefault();
-    	$(this).tab('show');
-    	//alert("active tab="+$('.nav-tabs .active').text());
-    	
-    	        
 
- 		if($('.nav-tabs .active').text()=="Detail")
- 		{
- 			//$("#show-daily-charts").empty();
-	 		showResults();  
-	 		//$('[name="show-daily-charts"]').attr("style", "visibility: hidden");
-	 		//$('[name="show-daily-charts"]').attr("style", "visibility: visible");			
- 		}
-   });
-	
-
-});
-
-</script>
 
 	<!-- jquery -->
 <script language="javascript" type="text/javascript" src="http://myliferocket.com/jquery/jquery.validate.min.js"></script>
@@ -159,11 +135,11 @@ $(document).ready(function() {
 <!--script type="text/javascript" src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.js"></script-->
 
 	<!-- flot -->
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
 
 	<!-- datepicker -->
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.js"></script>
@@ -172,14 +148,14 @@ $(document).ready(function() {
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/legacy.js"></script>
 
 	<!-- uislider -->
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/uislider/jquery.nouislider.min.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/uislider/jquery.nouislider.min.js"></script>
 
 	<!-- bootstrap -->
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/wp-includes/js/bootstrap.min.js"></script>
-<script async language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/bootstrap-switch.min.js'></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/wp-includes/js/bootstrap.min.js"></script>
+<script language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/bootstrap-switch.min.js'></script>
 
 	<!-- showExperimentResultsComparison -->
-<script async language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
 
 
 <?php if ( is_user_logged_in() && bp_experiment_is_member() ) : ?>
@@ -1286,8 +1262,8 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
     <div class="tab-content">
 	    <div class="tab-pane active" id="summary">
 	    	
-            <h1>Cumulative</h1>
-            <p>Cumulative Results</p>
+            <h1>Cumulative Results</h1>
+            <p></p>
  
  
 		 <?php
@@ -1315,7 +1291,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 			$(document).ready(function() {
 		
 					/*
-					 * Remove content-cumulative and content-cumulative-pp divs
+					 * Remove content-cumulative divs
 					 */
 					
 					if ($("#content-cumulative").length != 0)
@@ -1323,15 +1299,11 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 						$("#content-cumulative").remove();
 					}
 					
-					if ($("#content-cumulative-pp").length != 0)
-					{
-						$("#content-cumulative-pp").remove();
-					}
-			
+
 
 					if ($("#content-cumulative").length == 0)
 					{
-						$("<div id='content-cumulative' name='content-cumulative'> <h3>My results ("+nameVar1+ " vs "+nameVar2+")"
+						$("<div id='content-cumulative' name='content-cumulative'> <h3>Results ("+nameVar1+ " vs "+nameVar2+")"
 						+"</h3>  </div>").appendTo("#show-cumulative-charts");
 					}
 					
@@ -1531,17 +1503,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 							chartCount1 = parseFloat(displayedScore1.toFixed(1));
 							chartCount2 = parseFloat(displayedScore2.toFixed(1));
 							
-							//alert("displayedScore1="+displayedScore1);
-							//alert("displayedScore2="+displayedScore2);
-							
-							//alert("experimentId="+experimentId);
-							/*
-							alert("count1="+count1);
-							alert("avgScore1="+avgScore1);
-							alert("avgScore2="+avgScore1);
-							alert("displayedScore1="+displayedScore1);
-							alert("displayedScore2="+displayedScore2);
-							*/
+
 		
 						}//end if(typeVar2=="score")
 		
@@ -1832,8 +1794,8 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 	    </div><!-- end div id='summary'-->
 	    <div class="tab-pane" id="detail">
 	    
-	    	<h1>Daily</h1>
-            <p>Daily Report</p>
+	    	<h1>Daily Results</h1>
+            <p></p>
             
 				<div name="show-daily-charts" id="show-daily-charts">
 	               
@@ -2414,9 +2376,8 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 				
 							
 				<div id="content-daily" name="content-daily">
-						<div>My results (daily)</div>
+						<div style='text-align:center; width:80%;'>Results (daily)</div>
 				    	<div class="demo-container" id="legendcontainer-daily"></div>
-				    	<!--div id="placeholder-daily" class="demo-placeholder" style="height:400px; width:800px;"></div-->
 						<div id="placeholder-daily" class="demo-placeholder" style="height:400px; width:80%;"></div>
 					    <span id="hoverdata"></span>
 					    <span id="clickdata"></span>
@@ -2434,9 +2395,32 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 	    </div><!-- end div id='detail'-->
 
     </div>
-     
-
+ 
 <script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$('#myTab a').click(function (e) {
+    	//alert("mytab clicked");
+      
+    	e.preventDefault();
+    	$(this).tab('show');
+    	//alert("active tab="+$('.nav-tabs .active').text());
+    	
+    	        
+
+ 		if($('.nav-tabs .active').text()=="Detail")
+ 		{
+ 			//$("#show-daily-charts").empty();
+	 		showResults();  
+	 		//$('[name="show-daily-charts"]').attr("style", "visibility: hidden");
+	 		//$('[name="show-daily-charts"]').attr("style", "visibility: visible");			
+ 		}
+   });
+	
+
+});
+
 
     $(function () {
     	$('#myTab a:first').tab('show');
