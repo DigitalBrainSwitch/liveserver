@@ -1,4 +1,3 @@
-
 var mathUtils = {};
 mathUtils.getPearsonsCorrelation = function(x, y) 
 {
@@ -192,10 +191,7 @@ function showResults()
 		  	/*
 		  	 * Remove comparison charts if the participantId is Me or All
 		  	 */
-		  	
-	  		$("#show-cumulative-pp-charts").empty();
-	  		
-	  		$("#show-daily-charts-pp").empty();
+
 	  		
 	  		$("#show-cumulative-charts").empty();
 	  		
@@ -276,7 +272,7 @@ function showResults()
 		    	
 				if ($("#content-daily").length == 0)
 				{
-					$("<div id='content-daily' name='content-daily'> <div>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+					$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 					
 				}		    	
 		    	
@@ -315,15 +311,7 @@ function showResults()
 					var count2 = 0;	
 					
 					var xlabels = [];
-					
-					/*	
-					if ($("#content-daily").length == 0)
-					{
-						$("<div id='content-daily' name='content-daily'> <div>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:800px;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
-						
-					}
-					*/
-					
+
 					if(participantId=="All")
 					{	
 						
@@ -546,8 +534,7 @@ function showResults()
 							if (item) {
 								//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-		
-			
+
 								$("#tooltip").html(item.series.label).css({
 									top : item.pageY + 5,
 									left : item.pageX + 5
@@ -756,7 +743,7 @@ function showResults()
 							if (item) {
 								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 		
-								$("#tooltip").html(item.series.label + " = " + y).css({
+								$("#tooltip").html(nameVar + " = " + y).css({
 									top : item.pageY + 5,
 									left : item.pageX + 5
 								}).fadeIn(200);
@@ -772,7 +759,7 @@ function showResults()
 							//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 							var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 		
-							$("#tooltip").html(item.series.label + " = " + y).css({
+							$("#tooltip").html(nameVar + " = " + y).css({
 								top : item.pageY + 5,
 								left : item.pageX + 5
 							}).fadeIn(200);
@@ -788,7 +775,7 @@ function showResults()
 
 					if ($("#content-daily").length == 0)
 					{
-						$("<div id='content-daily' name='content-daily'> <div>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 						
 					}		    	
 		    	
@@ -2637,7 +2624,7 @@ function showComparison()
 							if ($("#content-daily").length == 0)
 							{
 							//alert("content-daily does not exist");
-								$("<div id='content-daily' name='content-daily'> <div>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+								$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
 							}
 															
 							var placeholder = $("#placeholder-daily");
@@ -2754,12 +2741,14 @@ function showComparison()
   								if ($("#comparison-individual").length == 0)
 								{
 								//alert("content-daily does not exist");
-									$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+									$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 								}	
   								
-  								
+  								//alert("friend_dateTimes.length="+friend_dateTimes.length);
 		   						if(friend_dateTimes.length==0)
 								{
+									
+									$("#placeholder-compare").remove();
 									$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 										
 								}//end if(friend_dateTimes.length==0) 	
@@ -2940,7 +2929,7 @@ function showComparison()
   								  	if ($("#comparison-individual").length == 0)
 									{
 									//alert("content-daily does not exist");
-										$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div>"+ 
+										$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div>"+ 
 										"<div align='left'>"+nameVar1+"=Yes</div>"+
 										
 										"<div align='left' id='legendcontainer-compare' style= 'width:80%;'></div>"+ 
@@ -3776,7 +3765,7 @@ function showComparison()
 						if ($("#content-daily").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
 						}						
 						
 						var xlabels = [];
@@ -3944,7 +3933,7 @@ function showComparison()
 						if ($("#comparison-individual").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 						}
   	
   						//alert("friendId="+friendId);
@@ -4622,7 +4611,7 @@ function showComparison()
 						if ($("#content-daily").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
 						}						
 									
 
@@ -4730,9 +4719,21 @@ function showComparison()
 						 * Daily visualization of the friend
 						 */
 						
+	
+						if ($("#comparison-individual").length != 0)
+						{
+								$("#comparison-individual").remove();
+						}				
+						if ($("#comparison-individual").length == 0)
+						{
+						//alert("content-daily does not exist");
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+						}
+  							
 						xlabels = [];
    						if(friend_dateTimes.length==0)
 						{
+							$("#placeholder-compare").remove();
 							$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 								
 						}//end if(friend_dateTimes.length==0) 							
@@ -4788,17 +4789,7 @@ function showComparison()
 							yaxis : 2
 						}];
 						
-	
-						if ($("#comparison-individual").length != 0)
-						{
-								$("#comparison-individual").remove();
-						}				
-						if ($("#comparison-individual").length == 0)
-						{
-						//alert("content-daily does not exist");
-							$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
-						}
-  	
+
 						var placeholder2 = $("#placeholder-compare");
 			
 						var plot2 = $.plot(placeholder2, friend_data, {
@@ -5166,7 +5157,7 @@ function showComparison()
 						if($("#content-daily").length == 0)
 						{
 							//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 							
 						}
 								
@@ -5273,7 +5264,7 @@ function showComparison()
 						
 						if ($("#comparison-individual").length == 0)
 						{
-							$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 						}
 
 						if(friendId!="MeVsAll")
@@ -5746,7 +5737,7 @@ function showComparison()
 					if($("#content-daily").length == 0)
 					{
 						//alert("content-daily does not exist");
-						$("<div id='content-daily' name='content-daily'> <div>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 						
 					}		
 					var placeholder = $("#placeholder-daily");
@@ -5839,9 +5830,21 @@ function showComparison()
 						}
 					});			
 					
+					//$("#show-comparison-daily-charts").empty();	
+					if ($("#comparison-individual").length != 0)
+					{
+						$("#comparison-individual").remove();
+					}
 					
+					if ($("#comparison-individual").length == 0)
+					{
+						$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+					}
+										
+					//alert("one count/score, one nothing. friend_dateTimes.length="+friend_dateTimes.length);
 					if(friend_dateTimes.length==0)
 					{
+						$("#placeholder-compare").remove();
 						$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 							
 					}//end if(friend_dateTimes.length==0) 						
@@ -5891,16 +5894,7 @@ function showComparison()
 					}];
 					
 					
-					//$("#show-comparison-daily-charts").empty();	
-					if ($("#comparison-individual").length != 0)
-					{
-						$("#comparison-individual").remove();
-					}
-					
-					if ($("#comparison-individual").length == 0)
-					{
-						$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
-					}
+
 
 					var placeholder2 = $("#placeholder-compare");
 					var plot2 = $.plot(placeholder2, friend_data, {
@@ -5970,7 +5964,7 @@ function showComparison()
 							if (item) {
 								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 		
-								$("#tooltip").html(item.series.label).css({
+								$("#tooltip").html(item.series.label+" = "+y).css({
 									top : item.pageY + 5,
 									left : item.pageX + 5
 								}).fadeIn(200);
@@ -5987,7 +5981,7 @@ function showComparison()
 							var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 	
 		
-							$("#tooltip").html(item.series.label).css({
+							$("#tooltip").html(item.series.label+" = "+y).css({
 								top : item.pageY + 5,
 								left : item.pageX + 5
 							}).fadeIn(200);
@@ -6158,7 +6152,7 @@ function showAllResults()
 			    	
 					if ($("#content-daily").length == 0)
 					{
-						$("<div id='content-daily' name='content-daily'> <div>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 						
 					}		    	
 			    	
@@ -6551,7 +6545,7 @@ function showAllResults()
 					  	if ($("#comparison-individual").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='comparison-individual' name='comparison-individual'> <div>Results (daily)</div>"+ 
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Results (daily)</div>"+ 
 							"<div align='left'>"+nameVar1+"=Yes</div>"+
 							
 							"<div align='left' id='legendcontainer-compare' style= 'width:80%;'></div>"+ 
@@ -7095,7 +7089,7 @@ function showAllResults()
 						if ($("#content-daily").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
 						}						
 						
 						
