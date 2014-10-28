@@ -81,7 +81,8 @@ do_action( 'bp_before_experiment_header' );
 
 
 	
-</div><script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</div>
+<script type="text/javascript" src="http://www.myliferocket.com/jquery/jquery-1.11.1.min.js"></script>
 
 <script>
 $( document ).ready(function() {
