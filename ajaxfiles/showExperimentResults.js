@@ -187,7 +187,7 @@ function showResults()
 			var d2 = [];
 			var d3 = [];
 			var d4 = [];
-		  	
+			
 		  	/*
 		  	 * Remove comparison charts if the participantId is Me or All
 		  	 */
@@ -272,7 +272,7 @@ function showResults()
 		    	
 				if ($("#content-daily").length == 0)
 				{
-					$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+					$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'></div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 					
 				}		    	
 		    	
@@ -323,6 +323,20 @@ function showResults()
 					else if(participantId=="Me")
 					{
 						//alert("participantId is Me");
+						
+						
+							if(timesPP.length==0)
+							{
+								$("#show-daily-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+								
+								$("#show-cumulative-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+								
+								
+								return;
+							}
+						
 
 						/*
 						 * Cumulative data per participant
@@ -567,6 +581,19 @@ function showResults()
 					
 					if(participantId=="Me")
 					{
+						
+						if(timesPP.length==0)
+						{
+							$("#show-daily-charts").empty();
+							$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+							
+							$("#show-cumulative-charts").empty();
+							$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+							
+							
+							return;
+						}
+						
 						for(var i=0; i< valuesPP_temp.length; i++)
 						{
 							count++;
@@ -775,7 +802,7 @@ function showResults()
 
 					if ($("#content-daily").length == 0)
 					{
-						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'></div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 						
 					}		    	
 		    	
@@ -805,6 +832,21 @@ function showResults()
 							/*
 							 * Cumulative data
 							 */
+							
+							if(timesPP.length==0)
+							{
+								$("#show-daily-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+								
+								$("#show-cumulative-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+								
+								
+								return;
+							}		
+															
+
+							
 							for (var i = 0; i < timesPP.length; ++i) 
 							{
 								if (valuesPP1[i] == 1 && valuesPP2[i] == 1) {
@@ -1138,6 +1180,20 @@ function showResults()
 									
 									if(participantId=="Me")
 									{
+										
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+										
 										for (var i = 0; i < valuesPP2.length; ++i) 
 										{
 											if (valuesPP1[i] == 1) {
@@ -1198,6 +1254,21 @@ function showResults()
 									
 									if(participantId=="Me")
 									{
+										
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+										
+										
 										for (var i = 0; i < valuesPP2.length; ++i) 
 										{
 											if (valuesPP1[i] == 1) 
@@ -1254,6 +1325,20 @@ function showResults()
 									if(participantId=="Me")
 									{
 										
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+										
+										
 										for (var i = 0; i < valuesPP1.length; ++i) {
 											if (valuesPP2[i] == 1) {
 												count1++;
@@ -1306,6 +1391,22 @@ function showResults()
 									avgTotalLabel = "Total";
 									if(participantId=="Me")
 									{
+										
+										
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+										
+										
 										for (var i = 0; i < valuesPP1.length; ++i) {
 											if (valuesPP2[i] == 1) {
 												
@@ -1417,6 +1518,21 @@ function showResults()
 							
 							if(participantId=="Me")
 							{
+								
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+								
+								
 								for (var i = 0; i < valuesPP2.length; ++i) 
 								{
 									if (valuesPP1[i] == 1)
@@ -1467,6 +1583,21 @@ function showResults()
 							}//end if(participantId=="All")							
 							if(participantId=="Me")
 							{
+								
+										if(timesPP.length==0)
+										{
+											$("#show-daily-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+											
+											$("#show-cumulative-charts").empty();
+											$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+											
+											
+											return;
+										}
+										
+								
+								
 								for (var i = 0; i < valuesPP1.length; ++i) 
 								{
 				
@@ -1683,8 +1814,20 @@ function showResults()
 						
 						if(participantId=="Me")
 						{
-							user_correlationValue = mathUtils.getPearsonsCorrelation(valuesPP1, valuesPP2);
+							//user_correlationValue = mathUtils.getPearsonsCorrelation(valuesPP1, valuesPP2);
 
+							if(timesPP.length==0)
+							{
+								$("#show-daily-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+								
+								$("#show-cumulative-charts").empty();
+								$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');
+								
+								
+								return;
+							}
+										
 							for (var i = 0; i < valuesPP1.length; ++i) 
 							{
 								
@@ -1713,7 +1856,7 @@ function showResults()
 							
 						if(participantId=="All")
 						{
-							user_correlationValue = mathUtils.getPearsonsCorrelation(values1, values2);
+							//user_correlationValue = mathUtils.getPearsonsCorrelation(values1, values2);
 							
 							for (var i = 0; i < values1.length; ++i) 
 							{
@@ -1739,46 +1882,6 @@ function showResults()
 														
 						}
 							
-						//alert("user_correlationValue="+user_correlationValue);
-						
-						var line1 = "Correlation value";
-						var line2 = "Correlation value";
-						
-						
-						if(user_correlationValue<0.1)
-						{
-							line1 = nameVar1+" is not linked with "+nameVar2+".";
-							line2 = "";
-						}
-						
-						else if(user_correlationValue>=0.1)
-						{
-							line1 = nameVar1+" is positively linked with "+nameVar2+".";
-							line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-							
-							
-						}
-						
-						else if(user_correlationValue<=-0.01)
-						{
-							line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-							line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-						}
-						
-						
-						
-						/*
-						
-						$("<div class='col-md-6' id='cumulative-left'><h5> Link between "+nameVar1+" and "+ nameVar2+" <h5></div>").appendTo("#show-cumulative-charts");
-						
-						$("<div class=''><div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-						"</div></div></div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-md-6'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
-							
-						
-						$("<div class=''><div><span style='color:black; font-size:0.8em'>"+line1+"</span> </div>"+line2+"</div>").appendTo("#cumulative-right");						
-						*/
 						
 
 						/*
@@ -1787,55 +1890,6 @@ function showResults()
 												
 						$("#show-cumulative-charts").empty();
 						
-						/*
-						$("<h3>My Results: Link between "+nameVar1+" and "+ nameVar2+" <h3><div class='col-md-6' id='cumulative-left'></div>").appendTo("#show-cumulative-charts");
-						
-						$("<div class=''><div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-						"</div></div></div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-md-6 'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
-							
-						
-						$("<div class=''><div><span style='color:black; font-size:0.8em'>"+user_line1+"</span> </div>"+user_line2+"</div>").appendTo("#cumulative-right");
-					*/
-					
-
-								
-							
-					/*
-					
-					if(user_correlationValue==0)
-					{
-						line1 = nameVar1+" is not linked with "+nameVar2+".";
-						line2 = "";
-					}
-					
-					else if(user_correlationValue>0)
-					{
-						line1 = nameVar1+" is positively linked with "+nameVar2+".";
-						line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-						
-						
-					}
-					
-					else if(user_correlationValue<0)
-					{
-						line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-						line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-					}
-					
-					
-					$("<h3> Link between "+nameVar1+" and "+ nameVar2+" </h3><div class='col-md-6' id='cumulative-left'></div>").appendTo("#show-cumulative-charts");
-					
-					$("<div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-					"</div></div>").appendTo("#cumulative-left");
-					
-					$("<div class='col-md-6'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
-						
-					
-					$("<div><span style='color:black; font-size:0.8em'>"+line1+"</span> </div>"+line2).appendTo("#cumulative-right");
-					
-					*/
 
 					if(user_count1==0)
 					{
@@ -2112,10 +2166,7 @@ function showComparison()
 	if ($("#comparison-individual").length == 0)
 	{
 		$("<div id='comparison-individual' name='comparison-individual'> <div class='demo-container'> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' height='400px' width='800px'></div> </div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-charts");
-  		/*
-  		$("<div id='comparison-individual' name='comparison-individual' height='400px' width='800px'>"+ 
-  		"<canvas id='canvas-comparison' name='canvas-comparison' height='400px' width='800px' ></canvas> </div>").appendTo("#show-comparison-charts"); 
-  		*/ 	
+					
   	}
 
   //alert(variable1);
@@ -2263,6 +2314,7 @@ function showComparison()
 			  		if (typeVar1 == "binary" && typeVar2 == "binary")
 					{
 
+						//alert("showComparison.two binary");
 						var xlabels = [];
 						/*	
 						var max_length = user_variable1_values.length;
@@ -2382,6 +2434,7 @@ function showComparison()
 							ylabels[0] = nameVar2 + "=Yes";
 							ylabels[1] = nameVar2 + "=No";
 							
+							
 	
 							$("<div class='col-md-6 row' id='cumulative-left'><h5>My Results:"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
 	
@@ -2400,13 +2453,23 @@ function showComparison()
 							if(count1 == count2)
 							{
 				
-				               
+				                if(count1==0)
+				                {
+									
+									//$("#show-cumulative-charts").empty();
+	
+									$("<div class='col-xs-6'>You have not reported results to this experiment. Please report them.</div>").appendTo("#cumulative-left");
+												                	
+				                }
 				
-								$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count1+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left");
-								
-								$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+count2+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-left");
+								else{
+									$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count1+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left");
+									
+									$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+count2+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-left");									
+								}
+
 							}
 							
 							if(count1 < count2)
@@ -2436,13 +2499,16 @@ function showComparison()
 							
 							if(count3 == count4)
 							{
+								if(count3>0)
+								{
+									$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count3+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right");
+									
+									$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+count4+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-right");
+					
+								}
 								
-								
-								$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count3+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right");
-								
-								$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+count4+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-right");
 							}
 							
 							if(count3 < count4)
@@ -2458,7 +2524,7 @@ function showComparison()
 														
 							
 							$("#show-comparison-charts").empty();
-							$("<div class='col-md-6 row' id='cumulative-left2'><h5>Friend's Results:"+nameVar1+"=Yes<h5></div>").appendTo("#show-comparison-charts");
+							$("<div class='col-md-6 row' id='cumulative-left2'><h5>Member's Results:"+nameVar1+"=Yes<h5></div>").appendTo("#show-comparison-charts");
 							if(count5 > count6)
 							{
 								
@@ -2474,12 +2540,22 @@ function showComparison()
 							if(count5 == count6)
 							{
 
-				
-								$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count5+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left2");
+				                if(count5==0)
+				                {
+									$("<div class='col-xs-6'>You have not reported results to experiment. Please report them.</div>").appendTo("#cumulative-left2");
+												                	
+				                }
+				                else
+				                {
+									$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count5+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left2");
+									
+									$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+count6+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-left2");	
+												                	
+				                }//end else
 								
-								$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+count6+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-left2");
+
 							}
 							
 							if(count5 < count6)
@@ -2494,7 +2570,7 @@ function showComparison()
 							}
 																
 							
-							$("<div class='col-md-6 row'id='cumulative-right2'><h5>Friend's Results: "+nameVar1+"=No</h5>").appendTo("#show-comparison-charts");
+							$("<div class='col-md-6 row'id='cumulative-right2'><h5>Member's Results: "+nameVar1+"=No</h5>").appendTo("#show-comparison-charts");
 							if(count7 > count8)
 							{
 								
@@ -2509,12 +2585,15 @@ function showComparison()
 							if(count7 == count8)
 							{
 								
+								if(count7>0)
+								{
+									$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count7+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right2");
 								
-								$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count7+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right2");
-								
-								$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+count8+
-								"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-right2");
+									$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+count8+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": No</div>").appendTo("#cumulative-right2");
+					
+								}
 							}
 							
 							if(count7 < count8)
@@ -2533,188 +2612,214 @@ function showComparison()
 							/*
 							 * Daily visualization of the participant
 							 */
-		
-							var user_d1 = [];
-							var user_d2 = [];
-							var friend_d1 = [];
-							var friend_d2 = [];
-
-	            			//var user_variable1_values = valuesPP[variable1_index];
-	            			//var user_variable2_values = valuesPP[variable2_index];					
-
-							for (var i = 0; i < timesPP.length; ++i) {
-								if (user_variable1_values[i] == 1 && user_variable2_values[i] == 1) {
-									user_d1.push([i, 1]);
-								}
-				
-								if (user_variable1_values[i] == 1 && user_variable2_values[i] == 0) {
-									user_d1.push([i, -1]);
-								}
-				
-								if (user_variable1_values[i] == 0 && user_variable2_values[i] == 1) {
-									user_d2.push([i, 1]);
-								}
-								if (user_variable1_values[i] == 0 && user_variable2_values[i] == 0) {
-									user_d2.push([i, -1]);
-								}
-							}//end for
 							
+								var user_d1 = [];
+								var user_d2 = [];
+								var friend_d1 = [];
+								var friend_d2 = [];
+	
 							
-							var xlabels = [];
-							for (var i = 0; i < timesPP.length; ++i) 
-							{
-								var latestDate= timesPP[i].toString();
-								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDate);
-								var newDate = (parsedDate.getDate()) + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();				
-								
-								var xlabel = [];
-								//xlabel.push(i+0.3, times[i]);
-								xlabel.push(i+0.5, newDate);
-								xlabels.push(xlabel);
-							}//end for
-				
-							var numDays = xlabels.length;
-							if(numDays<7)
-							{
-								//alert("numDays="+numDays);
-								var latestDate= xlabels[xlabels.length-1].toString();
-								var index = latestDate.indexOf(",")+1;
-								var latestDateString = latestDate.substr(index, latestDate.length-1);
-								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-				
-								for(var x=numDays; x<7; x++)
+								if ($("#content-daily").length != 0)
 								{
-									var difference = x-numDays;
-									parsedDate.setDate(parsedDate.getDate()+1);
-									//alert("parsedDate-new="+parsedDate); 
-									var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-									//alert("newDate="+newDate);
+									//alert("daily");
+									$("#content-daily").remove();
+								}
+								else
+								{
+									//alert("daily does not exist");
+								}
+				
+		
+							//alert("timesPP.length="+timesPP.length);
+							if(timesPP.length==0)
+							{
+								//var length = $("#content-daily").length;
+								//alert("content-daily.length="+length);
+								//$("#show-daily-charts").empty();
+								
+								//$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');
+							}
+							
+
+							if(timesPP.length>0)
+							{
+
+
+								if ($("#content-daily").length == 0)
+								{
+									//alert("content-daily does not exist");
+									$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+								}								
+		            			//var user_variable1_values = valuesPP[variable1_index];
+		            			//var user_variable2_values = valuesPP[variable2_index];					
+	
+								for (var i = 0; i < timesPP.length; ++i) {
+									if (user_variable1_values[i] == 1 && user_variable2_values[i] == 1) {
+										user_d1.push([i, 1]);
+									}
+					
+									if (user_variable1_values[i] == 1 && user_variable2_values[i] == 0) {
+										user_d1.push([i, -1]);
+									}
+					
+									if (user_variable1_values[i] == 0 && user_variable2_values[i] == 1) {
+										user_d2.push([i, 1]);
+									}
+									if (user_variable1_values[i] == 0 && user_variable2_values[i] == 0) {
+										user_d2.push([i, -1]);
+									}
+								}//end for
+								
+								
+								var xlabels = [];
+								for (var i = 0; i < timesPP.length; ++i) 
+								{
+									var latestDate= timesPP[i].toString();
+									var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDate);
+									var newDate = (parsedDate.getDate()) + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();				
 									
 									var xlabel = [];
-									//xlabel.push(x, "Day"+ (x+1)+ " ");
-									xlabel.push(x+0.5, newDate);
+									//xlabel.push(i+0.3, times[i]);
+									xlabel.push(i+0.5, newDate);
 									xlabels.push(xlabel);
-									
-									user_d1.push([x, "nil"]);
-									user_d2.push([x, "nil"]);	
-								
 								}//end for
-							}//end if(xlabels.length<7)
-				
-							var ylabels = [];
-							ylabels[0] = nameVar2 + "=Yes";
-							ylabels[1] = nameVar2 + "=No";
-				
-							var data = [{
-								data : user_d1,
-								label : nameVar1 + "=Yes",
-								color : "#98c734"
-							}, {
-								data : user_d2,
-								label : nameVar1 + "=No",
-								color : "#fc972a"
-							}];
-	
-	
-							if ($("#content-daily").length != 0)
-							{
-								$("#content-daily").remove();
-							}
-											
-							if ($("#content-daily").length == 0)
-							{
-							//alert("content-daily does not exist");
-								$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
-							}
-															
-							var placeholder = $("#placeholder-daily");
-							var plot = $.plot(placeholder, data, {
-								series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-						
-								xaxis : {
-									tickLength : 0,
-									//min: 0.5,
-									//max: ticks.length+0.5,
-									ticks : xlabels,
-									rotateTicks : 90,
-									panRange: [-0.05, xlabels.length],
-									axisLabel: ' '
-								},
-								yaxis : {
-									ticks : [[0.5, "Yes"], [-0.5, "No"]],
-									axisLabel : nameVar2,
-									panRange: false,
-								},
-								grid : {
-									hoverable : true,
-									clickable : true
-								},
-								legend : {
-									noColumns : 0,
-									container : $("#legendcontainer-daily")
-								},
-								pan: {
-									interactive: true
-								},
-							});
-				
-							$("<div id='tooltip'></div>").css({
-								position : "absolute",
-								display : "none",
-								border : "1px solid #fdd",
-								padding : "2px",
-								"background-color" : "#fee",
-								opacity : 0.80
-							}).appendTo("body");
-				
-							placeholder.bind("plothover", function(event, pos, item) {
-				
-								//    if ($("#enablePosition:checked").length > 0)
+					
+								var numDays = xlabels.length;
+								if(numDays<7)
 								{
-									var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
-									//$("#hoverdata").text(str);
-								}
+									//alert("numDays="+numDays);
+									var latestDate= xlabels[xlabels.length-1].toString();
+									var index = latestDate.indexOf(",")+1;
+									var latestDateString = latestDate.substr(index, latestDate.length-1);
+									var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+					
+									for(var x=numDays; x<7; x++)
+									{
+										var difference = x-numDays;
+										parsedDate.setDate(parsedDate.getDate()+1);
+										//alert("parsedDate-new="+parsedDate); 
+										var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+										//alert("newDate="+newDate);
+										
+										var xlabel = [];
+										//xlabel.push(x, "Day"+ (x+1)+ " ");
+										xlabel.push(x+0.5, newDate);
+										xlabels.push(xlabel);
+										
+										user_d1.push([x, "nil"]);
+										user_d2.push([x, "nil"]);	
+									
+									}//end for
+								}//end if(xlabels.length<7)
+					
+								var ylabels = [];
+								ylabels[0] = nameVar2 + "=Yes";
+								ylabels[1] = nameVar2 + "=No";
+					
+								var data = [{
+									data : user_d1,
+									label : nameVar1 + "=Yes",
+									color : "#98c734"
+								}, {
+									data : user_d2,
+									label : nameVar1 + "=No",
+									color : "#fc972a"
+								}];
 				
-								//if ($("#enableTooltip:checked").length > 0)
-								{
+								var placeholder = $("#placeholder-daily");
+								var plot = $.plot(placeholder, data, {
+									series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
+							
+									xaxis : {
+										tickLength : 0,
+										//min: 0.5,
+										//max: ticks.length+0.5,
+										ticks : xlabels,
+										rotateTicks : 90,
+										panRange: [-0.05, xlabels.length],
+										axisLabel: ' '
+									},
+									yaxis : {
+										ticks : [[0.5, "Yes"], [-0.5, "No"]],
+										axisLabel : nameVar2,
+										panRange: false,
+									},
+									grid : {
+										hoverable : true,
+										clickable : true
+									},
+									legend : {
+										noColumns : 0,
+										container : $("#legendcontainer-daily")
+									},
+									pan: {
+										interactive: true
+									},
+								});
+					
+								$("<div id='tooltip'></div>").css({
+									position : "absolute",
+									display : "none",
+									border : "1px solid #fdd",
+									padding : "2px",
+									"background-color" : "#fee",
+									opacity : 0.80
+								}).appendTo("body");
+					
+								placeholder.bind("plothover", function(event, pos, item) {
+					
+									//    if ($("#enablePosition:checked").length > 0)
+									{
+										var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
+										//$("#hoverdata").text(str);
+									}
+					
+									//if ($("#enableTooltip:checked").length > 0)
+									{
+										if (item) {
+											var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+					
+											if (y == 1)
+												y = "Yes";
+											else if (y == -1)
+												y = "No";
+					
+											$("#tooltip").html(item.series.label + " , " + nameVar2 + " = " + y).css({
+												top : item.pageY + 5,
+												left : item.pageX + 5
+											}).fadeIn(200);
+					
+										} else {
+											$("#tooltip").hide();
+										}
+									}
+								});
+					
+								placeholder.bind("plotclick", function(event, pos, item) {
 									if (item) {
+										//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 										var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-				
+					
 										if (y == 1)
 											y = "Yes";
 										else if (y == -1)
 											y = "No";
-				
+					
 										$("#tooltip").html(item.series.label + " , " + nameVar2 + " = " + y).css({
 											top : item.pageY + 5,
 											left : item.pageX + 5
 										}).fadeIn(200);
-				
-									} else {
-										$("#tooltip").hide();
+					
+										plot.highlight(item.series, item.datapoint);
 									}
-								}
-							});
-				
-							placeholder.bind("plotclick", function(event, pos, item) {
-								if (item) {
-									//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-				
-									if (y == 1)
-										y = "Yes";
-									else if (y == -1)
-										y = "No";
-				
-									$("#tooltip").html(item.series.label + " , " + nameVar2 + " = " + y).css({
-										top : item.pageY + 5,
-										left : item.pageX + 5
-									}).fadeIn(200);
-				
-									plot.highlight(item.series, item.datapoint);
-								}
-							});				
+								});				
+																
 								
+								
+							}//end if(timesPP.length>0)
+
+														
+
 
 							/*
 							 * Daily visualization of the friend
@@ -2724,14 +2829,7 @@ function showComparison()
 							{
 								$("#comparison-individual").remove();
 							}
-							
-							/*				
-							if ($("#comparison-individual").length == 0)
-							{
-							//alert("content-daily does not exist");
-								$("<div id='comparison-individual' name='comparison-individual'> <div>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
-							}
-  	*/
+
 							//alert("friend_dateTimes.length="+friend_dateTimes.length);
   										//alert("friend_variable1_values.length="+friend_variable1_values.length);
   										//alert("friend_variable2_values.length="+friend_variable2_values.length);
@@ -2741,7 +2839,7 @@ function showComparison()
   								if ($("#comparison-individual").length == 0)
 								{
 								//alert("content-daily does not exist");
-									$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+									$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 								}	
   								
   								//alert("friend_dateTimes.length="+friend_dateTimes.length);
@@ -2749,7 +2847,7 @@ function showComparison()
 								{
 									
 									$("#placeholder-compare").remove();
-									$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+									$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 										
 								}//end if(friend_dateTimes.length==0) 	
 								
@@ -2929,7 +3027,7 @@ function showComparison()
   								  	if ($("#comparison-individual").length == 0)
 									{
 									//alert("content-daily does not exist");
-										$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div>"+ 
+										$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div>"+ 
 										"<div align='left'>"+nameVar1+"=Yes</div>"+
 										
 										"<div align='left' id='legendcontainer-compare' style= 'width:80%;'></div>"+ 
@@ -2952,6 +3050,17 @@ function showComparison()
 									var all_d3 = [];
 									var all_d4 = [];
 							
+
+			   						if(times.length==0)
+									{
+										
+										$("#placeholder-compare").remove();
+										$("#placeholder-compare2").remove();
+										$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+											
+									}//end if(times.length==0) 								
+								
+								
 							
 										//alert("all_variable1_values.length="+all_variable1_values.length);
 										//alert("times.length="+times.length);
@@ -3076,9 +3185,7 @@ function showComparison()
 							
 										});
 											
-											
-											
-											
+	
 									var all_data2 = [
 											{
 												data : all_d3,
@@ -3264,7 +3371,9 @@ function showComparison()
 						var friend_chartCount1;
 						var friend_chartCount2;						
 						var avgTotalLabel;
-			
+						
+						
+
 						if (typeVar1 == "binary") 
 						{
 			
@@ -3703,11 +3812,21 @@ function showComparison()
 						if(user_chartCount1 == user_chartCount2)
 						{
 
-							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_chartCount1+
-							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[0]+"</div>").appendTo("#cumulative-left");
-							
-							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_chartCount2+
-							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[1]+"</div>").appendTo("#cumulative-left");
+
+							if(user_chartCount1==0)
+							{
+								$("<div class='col-xs-6'>You have not reported results to this experiment. Please report them.</div>").appendTo("#cumulative-left");
+									
+							}
+							else
+							{
+								$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_chartCount1+
+								"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[0]+"</div>").appendTo("#cumulative-left");
+								
+								$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_chartCount2+
+								"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[1]+"</div>").appendTo("#cumulative-left");
+					
+							}
 						}
 						
 						if(user_chartCount1 < user_chartCount2)
@@ -3722,7 +3841,7 @@ function showComparison()
 
 
 
-						$("<div class='col-md-6 row' id='cumulative-right'><h5>Friend's Results:"+label2+"<h5></div>").appendTo("#show-cumulative-charts");
+						$("<div class='col-md-6 row' id='cumulative-right'><h5>Member's Results:"+label2+"<h5></div>").appendTo("#show-cumulative-charts");
 						if(friend_chartCount1 > friend_chartCount2)
 						{
 							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_chartCount1+
@@ -3735,11 +3854,21 @@ function showComparison()
 							
 						if(friend_chartCount1 == friend_chartCount2)
 						{
-							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_chartCount1+
-							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[0]+"</div>").appendTo("#cumulative-right");
 							
-							$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+friend_chartCount2+
-							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[1]+"</div>").appendTo("#cumulative-right");
+							if(friend_chartCount1==0)
+							{
+								$("<div class='col-xs-6'>Member has not reported results to this experiment.</div>").appendTo("#cumulative-right");
+									
+							}
+							else
+							{
+							
+								$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_chartCount1+
+								"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[0]+"</div>").appendTo("#cumulative-right");
+								
+								$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+friend_chartCount2+
+								"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+ylabels[1]+"</div>").appendTo("#cumulative-right");
+							}//end else
 						}
 						
 						if(friend_chartCount1 < friend_chartCount2)
@@ -3757,170 +3886,174 @@ function showComparison()
 						 * Daily Visualization of user
 						 */
 						
-						if ($("#content-daily").length != 0)
+						if(timesPP.length>0)
 						{
-							$("#content-daily").remove();
-						}
-										
-						if ($("#content-daily").length == 0)
-						{
-						//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
-						}						
-						
-						var xlabels = [];
-						for (var i = 0; i < timesPP.length; ++i) 
-						{
-							var latestDate= timesPP[i].toString();
-							var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDate);
-							var newDate = (parsedDate.getDate()) + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();				
-							
-							var xlabel = [];
-							//xlabel.push(i+0.3, times[i]);
-							xlabel.push(i+0.5, newDate);
-							xlabels.push(xlabel);
-						}//end for
-			
-						var numDays = xlabels.length;
-						if(numDays<7)
-						{
-			
-							var latestDate= xlabels[xlabels.length-1].toString();
-							var index = latestDate.indexOf(",")+1;
-							var latestDateString = latestDate.substr(index, latestDate.length-1);
-							var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-			
-							for(var x=numDays; x<7; x++)
+							if ($("#content-daily").length != 0)
 							{
-								var difference = x-numDays;
-								parsedDate.setDate(parsedDate.getDate()+1);
-								//alert("parsedDate-new="+parsedDate); 
-								var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-								//alert("newDate="+newDate);
+								$("#content-daily").remove();
+							}
+											
+							if ($("#content-daily").length == 0)
+							{
+							//alert("content-daily does not exist");
+								$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+							}						
+							
+							var xlabels = [];
+							for (var i = 0; i < timesPP.length; ++i) 
+							{
+								var latestDate= timesPP[i].toString();
+								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDate);
+								var newDate = (parsedDate.getDate()) + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();				
 								
 								var xlabel = [];
-								//xlabel.push(x, "Day"+ (x+1)+ " ");
-								xlabel.push(x+0.5, newDate);
+								//xlabel.push(i+0.3, times[i]);
+								xlabel.push(i+0.5, newDate);
 								xlabels.push(xlabel);
-								
-								user_d1.push([x, "nil"]);
-								user_d2.push([x, "nil"]);	
-							
 							}//end for
-						}//end if(xlabels.length<7)
-			
-						var data = [{
-							data : user_d1,
-							//data: [ [0,1], [1, 5], [3, 7] ],
-							label : ylabels[0],
-							color : "#98c734"
-						}, {
-							data : user_d2,
-							//data: [ [4,1], [5, 5], [6, 7] ],
-							label : ylabels[1],
-							color : "#fc972a"
-						}];
-			
-						var placeholder = $("#placeholder-daily");
-			
-						var plot = $.plot(placeholder, data, {
-						series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-							/*
-							bars : {
-								show : true,
-								barWidth : 0.5,
-								fill : 0.9
-							},
-							*/
-			
-							xaxis : {
-								tickLength : 0,
-								//min: 0.5,
-								//max: ticks.length+0.5,
-								ticks : xlabels,
-								rotateTicks : 90,
-								panRange: [-0.2, xlabels.length],
-								axisLabel: ' ',
-			
-							},
-			
-							yaxis : {
-								axisLabel : label2,
-								panRange: false,
-							},
-			
-							grid : {
-								hoverable : true,
-								clickable : true
-							},
-			
-							legend : {
-								noColumns : 0,
-								container : $("#legendcontainer-daily")
-							},
-							pan: {
-								interactive: true
-							},
-			
-						});
-			
-						$("<div id='tooltip'></div>").css({
-							position : "absolute",
-							display : "none",
-							border : "1px solid #fdd",
-							padding : "2px",
-							"background-color" : "#fee",
-							opacity : 0.80
-						}).appendTo("body");
-			
-						placeholder.bind("plothover", function(event, pos, item) {
-			
-							//    if ($("#enablePosition:checked").length > 0)
+				
+							var numDays = xlabels.length;
+							if(numDays<7)
 							{
-								var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
-								//$("#hoverdata").text(str);
-							}
-			
-							//if ($("#enableTooltip:checked").length > 0)
-							{
+				
+								var latestDate= xlabels[xlabels.length-1].toString();
+								var index = latestDate.indexOf(",")+1;
+								var latestDateString = latestDate.substr(index, latestDate.length-1);
+								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+				
+								for(var x=numDays; x<7; x++)
+								{
+									var difference = x-numDays;
+									parsedDate.setDate(parsedDate.getDate()+1);
+									//alert("parsedDate-new="+parsedDate); 
+									var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+									//alert("newDate="+newDate);
+									
+									var xlabel = [];
+									//xlabel.push(x, "Day"+ (x+1)+ " ");
+									xlabel.push(x+0.5, newDate);
+									xlabels.push(xlabel);
+									
+									user_d1.push([x, "nil"]);
+									user_d2.push([x, "nil"]);	
+								
+								}//end for
+							}//end if(xlabels.length<7)
+				
+							var data = [{
+								data : user_d1,
+								//data: [ [0,1], [1, 5], [3, 7] ],
+								label : ylabels[0],
+								color : "#98c734"
+							}, {
+								data : user_d2,
+								//data: [ [4,1], [5, 5], [6, 7] ],
+								label : ylabels[1],
+								color : "#fc972a"
+							}];
+				
+							var placeholder = $("#placeholder-daily");
+				
+							var plot = $.plot(placeholder, data, {
+							series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
+								/*
+								bars : {
+									show : true,
+									barWidth : 0.5,
+									fill : 0.9
+								},
+								*/
+				
+								xaxis : {
+									tickLength : 0,
+									//min: 0.5,
+									//max: ticks.length+0.5,
+									ticks : xlabels,
+									rotateTicks : 90,
+									panRange: [-0.2, xlabels.length],
+									axisLabel: ' ',
+				
+								},
+				
+								yaxis : {
+									axisLabel : label2,
+									panRange: false,
+								},
+				
+								grid : {
+									hoverable : true,
+									clickable : true
+								},
+				
+								legend : {
+									noColumns : 0,
+									container : $("#legendcontainer-daily")
+								},
+								pan: {
+									interactive: true
+								},
+				
+							});
+				
+							$("<div id='tooltip'></div>").css({
+								position : "absolute",
+								display : "none",
+								border : "1px solid #fdd",
+								padding : "2px",
+								"background-color" : "#fee",
+								opacity : 0.80
+							}).appendTo("body");
+				
+							placeholder.bind("plothover", function(event, pos, item) {
+				
+								//    if ($("#enablePosition:checked").length > 0)
+								{
+									var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
+									//$("#hoverdata").text(str);
+								}
+				
+								//if ($("#enableTooltip:checked").length > 0)
+								{
+									if (item) {
+										var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+				
+										if (y == 1)
+											y = "Yes";
+										else if (y == -1)
+											y = "No";
+				
+										$("#tooltip").html(item.series.label + " , " + label2 + " = " + y).css({
+											top : item.pageY + 5,
+											left : item.pageX + 5
+										}).fadeIn(200);
+				
+									} else {
+										$("#tooltip").hide();
+									}
+								}
+							});
+				
+							placeholder.bind("plotclick", function(event, pos, item) {
 								if (item) {
+									//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-			
+				
 									if (y == 1)
 										y = "Yes";
 									else if (y == -1)
 										y = "No";
-			
+				
 									$("#tooltip").html(item.series.label + " , " + label2 + " = " + y).css({
 										top : item.pageY + 5,
 										left : item.pageX + 5
 									}).fadeIn(200);
-			
-								} else {
-									$("#tooltip").hide();
+				
+									plot.highlight(item.series, item.datapoint);
 								}
-							}
-						});
-			
-						placeholder.bind("plotclick", function(event, pos, item) {
-							if (item) {
-								//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-			
-								if (y == 1)
-									y = "Yes";
-								else if (y == -1)
-									y = "No";
-			
-								$("#tooltip").html(item.series.label + " , " + label2 + " = " + y).css({
-									top : item.pageY + 5,
-									left : item.pageX + 5
-								}).fadeIn(200);
-			
-								plot.highlight(item.series, item.datapoint);
-							}
-						});
-									
+							});							
+						}//end if(timesPP.length>0)
+						
+	
 						
 						/*
 						 * Daily Visualization of friend
@@ -3933,14 +4066,15 @@ function showComparison()
 						if ($("#comparison-individual").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 						}
   	
   						//alert("friendId="+friendId);
    						
    						if(friend_dateTimes.length==0)
 						{
-							$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+							$("#placeholder-compare").remove();
+							$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 								
 						}//end if(friend_dateTimes.length==0) 						
   						
@@ -4001,6 +4135,16 @@ function showComparison()
 			
 						if(friendId=="MeVsAll")
 						{
+							
+					
+	   						if(times.length==0)
+							{
+								
+								$("#placeholder-compare").remove();
+								$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+									
+							}//end if(times.length==0) 								
+															
 							
 							var d1 = [];
 							var d2 = [];
@@ -4223,59 +4367,10 @@ function showComparison()
 						 * Cumulative visualization of the current user
 						 */
 
-	
-						var user_correlationValue = mathUtils.getPearsonsCorrelation(user_variable1_values, user_variable2_values);
-						//alert("user_correlationValue="+user_correlationValue);
-						
 						var user_line1 = "Correlation value";
 						var user_line2 = "Correlation value";
 						
-						/*
-						
-						if(user_correlationValue==0)
-						{
-							user_line1 = nameVar1+" is not linked with "+nameVar2+".";
-							user_line2 = "";
-						}
-						
-						else if(user_correlationValue>0)
-						{
-							user_line1 = nameVar1+" is positively linked with "+nameVar2+".";
-							user_line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-						}
-						
-						else if(user_correlationValue<=-0.09)
-						{
-							user_line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-							user_line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-						}
-						
-
-						var friend_correlationValue = mathUtils.getPearsonsCorrelation(friend_variable1_values, friend_variable2_values);
-						//alert("user_correlationValue="+user_correlationValue);
-						
-						var friend_line1 = "Correlation value";
-						var friend_line2 = "Correlation value";
-						
-						
-						if(friend_correlationValue==0)
-						{
-							friend_line1 = nameVar1+" is not linked with "+nameVar2+".";
-							friend_line2 = "";
-						}
-						
-						else if(friend_correlationValue>=0.09)
-						{
-							friend_line1 = nameVar1+" is positively linked with "+nameVar2+".";
-							friend_line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-						}
-						
-						else if(friend_correlationValue<0)
-						{
-							friend_line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-							friend_line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-						}
-						*/
+	
 						
 						/*
 						 * Cumulative visualization of user
@@ -4283,115 +4378,69 @@ function showComparison()
 												
 						$("#show-cumulative-charts").empty();
 						
-						/*
-						$("<h3>My Results: Link between "+nameVar1+" and "+ nameVar2+" <h3><div class='col-md-6' id='cumulative-left'></div>").appendTo("#show-cumulative-charts");
 						
-						$("<div class=''><div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-						"</div></div></div>").appendTo("#cumulative-left");
+						var user_avgScore1 = 0.0;
+						var user_avgScore2 = 0.0;
+						var user_count1 = 0;
+						var user_count2 = 0;
+						var user_displayedScore1 = 0;
+						var user_displayedScore2 = 0;			
+						var user_chartCount1;
+						var user_chartCount2;
+						var avgTotalLabel = "Average";
 						
-						$("<div class='col-md-6 'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
+						var friend_avgScore1 = 0.0;
+						var friend_avgScore2 = 0.0;
+						var friend_count1 = 0;
+						var friend_count2 = 0;
+						var friend_displayedScore1 = 0;
+						var friend_displayedScore2 = 0;			
+						var friend_chartCount1;
+						var friend_chartCount2;					
 							
-						
-						$("<div class=''><div><span style='color:black; font-size:0.8em'>"+user_line1+"</span> </div>"+user_line2+"</div>").appendTo("#cumulative-right");
-					*/
-					
-					var user_avgScore1 = 0.0;
-					var user_avgScore2 = 0.0;
-					var user_count1 = 0;
-					var user_count2 = 0;
-					var user_displayedScore1 = 0;
-					var user_displayedScore2 = 0;			
-					var user_chartCount1;
-					var user_chartCount2;
-					var avgTotalLabel = "Average";
-					
-					var friend_avgScore1 = 0.0;
-					var friend_avgScore2 = 0.0;
-					var friend_count1 = 0;
-					var friend_count2 = 0;
-					var friend_displayedScore1 = 0;
-					var friend_displayedScore2 = 0;			
-					var friend_chartCount1;
-					var friend_chartCount2;					
+				
+
+						for (var i = 0; i < user_variable1_values.length; ++i) 
+						{
 							
-					/*
-					
-					if(user_correlationValue==0)
-					{
-						line1 = nameVar1+" is not linked with "+nameVar2+".";
-						line2 = "";
-					}
-					
-					else if(user_correlationValue>0)
-					{
-						line1 = nameVar1+" is positively linked with "+nameVar2+".";
-						line2= "This means, the higher "+nameVar1+", the higher "+nameVar2+" and vice versa.";
-						
-						
-					}
-					
-					else if(user_correlationValue<0)
-					{
-						line1 = nameVar1+" is negatively linked with "+nameVar2+".";
-						line2 = "This means, the higher "+nameVar1+", the lower "+nameVar2+" and vice versa.";
-					}
-					
-					
-					$("<h3> Link between "+nameVar1+" and "+ nameVar2+" </h3><div class='col-md-6' id='cumulative-left'></div>").appendTo("#show-cumulative-charts");
-					
-					$("<div class='bigCircle green1'> <div class='big_white'>"+user_correlationValue.toFixed(1)+
-					"</div></div>").appendTo("#cumulative-left");
-					
-					$("<div class='col-md-6'id='cumulative-right'> <br> </div>").appendTo("#show-cumulative-charts");
-						
-					
-					$("<div><span style='color:black; font-size:0.8em'>"+line1+"</span> </div>"+line2).appendTo("#cumulative-right");
-					
-					*/
-					
-
-					for (var i = 0; i < user_variable1_values.length; ++i) 
-					{
-						
-						//alert("valuesPP1["+i+"]="+valuesPP1[i]);
-						user_count1++;
-						//avgScore1 = parseInt(avgScore1) + parseInt(values1[i]);
-						if(user_variable1_values[i]!=null && user_variable1_values[i]!='')
+							//alert("valuesPP1["+i+"]="+valuesPP1[i]);
+							user_count1++;
+							//avgScore1 = parseInt(avgScore1) + parseInt(values1[i]);
+							if(user_variable1_values[i]!=null && user_variable1_values[i]!='')
+							{
+								user_avgScore1 = parseFloat(user_avgScore1) + parseFloat(user_variable1_values[i]);
+							}	
+							
+							user_count2++;
+							if(user_variable2_values[i]!=null && user_variable2_values[i]!='')
+							{
+								user_avgScore2 = parseFloat(user_avgScore2) + parseFloat(user_variable2_values[i]);
+							}	
+							
+							//alert("avgScore1="+avgScore1);	
+							//alert("avgScore2="+avgScore2);					
+						}//end for
+	
+	
+						if(user_count1==0)
 						{
-							user_avgScore1 = parseFloat(user_avgScore1) + parseFloat(user_variable1_values[i]);
+							user_displayedScore1 = 0;
+						}
+						else{
+							user_displayedScore1 = parseFloat(user_avgScore1) / parseFloat(user_count1);
 						}	
-						
-						user_count2++;
-						if(user_variable2_values[i]!=null && user_variable2_values[i]!='')
+						if(user_count2==0)
 						{
-							user_avgScore2 = parseFloat(user_avgScore2) + parseFloat(user_variable2_values[i]);
+							user_displayedScore2 = 0
+						}
+						else{
+							user_displayedScore2 = parseFloat(user_avgScore2) / parseFloat(user_count2);
 						}	
+	
+						user_chartCount1 = parseFloat(user_displayedScore1.toFixed(1));
+						user_chartCount2 = parseFloat(user_displayedScore2.toFixed(1));
 						
-						//alert("avgScore1="+avgScore1);	
-						//alert("avgScore2="+avgScore2);					
-					}//end for
 
-
-					if(user_count1==0)
-					{
-						user_displayedScore1 = 0;
-					}
-					else{
-						user_displayedScore1 = parseFloat(user_avgScore1) / parseFloat(user_count1);
-					}	
-					if(user_count2==0)
-					{
-						user_displayedScore2 = 0
-					}
-					else{
-						user_displayedScore2 = parseFloat(user_avgScore2) / parseFloat(user_count2);
-					}	
-
-					user_chartCount1 = parseFloat(user_displayedScore1.toFixed(1));
-					user_chartCount2 = parseFloat(user_displayedScore2.toFixed(1));
-					
-					//alert("user_chartCount1="+user_chartCount1);
-					//alert("user_chartCount2="+user_chartCount2);
 					
 					$("<div class='col-md-6 row' id='cumulative-left'><h5>My Results ("+nameVar1+" vs "+ nameVar2+")</h5></div>").appendTo("#show-cumulative-charts");
 						
@@ -4409,11 +4458,20 @@ function showComparison()
 					else if(user_chartCount1 == user_chartCount2)
 					{
 		
-						$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_chartCount1+
-						"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar1+"</div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_chartCount2+
-						"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar2+"</div>").appendTo("#cumulative-left");
+						if(user_chartCount1==0)
+						{
+								$("<div class='col-xs-6'>You have not reported results to this experiment. Please report them.</div>").appendTo("#cumulative-left");
+										
+						}
+						else
+						{
+							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_chartCount1+
+							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar1+"</div>").appendTo("#cumulative-left");
+							
+							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_chartCount2+
+							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar2+"</div>").appendTo("#cumulative-left");
+									
+						}//end else
 					}
 					
 					else if(user_chartCount1 < user_chartCount2)
@@ -4431,18 +4489,7 @@ function showComparison()
 						 */
 						
 						$("#show-comparison-charts").empty();
-						
-						/*
 
-						$("<h3>Friend's Results: Link between "+nameVar1+" and "+ nameVar2+"</h3><div class='col-md-6' id='cumulative-left2'></div>").appendTo("#show-comparison-charts");
-						
-						$("<div class=''><div class='bigCircle green1'> <div class='big_white'>"+friend_correlationValue.toFixed(1)+
-						"</div></div></div>").appendTo("#cumulative-left2");
-						
-						$("<div class='col-md-6'id='cumulative-right2'> <br> </div>").appendTo("#show-comparison-charts");
-						$("<div class=''><div><span style='color:black; font-size:0.8em'>"+friend_line1+"</span> </div>"+friend_line2+"</div>").appendTo("#cumulative-right2");
-					
-*/
 
 					for (var i = 0; i < friend_variable1_values.length; ++i) 
 					{
@@ -4486,7 +4533,7 @@ function showComparison()
 					
 
 					//$("<div class='col-md-6 row' id='cumulative-left2'><h5></h5></div>").appendTo("#show-comparison-charts");
-					$("<div class='col-md-6 row' id='cumulative-right'><h5>Friend's Results ("+nameVar1+" vs "+ nameVar2+")</h5></div>").appendTo("#show-cumulative-charts");
+					$("<div class='col-md-6 row' id='cumulative-right'><h5>Member's Results ("+nameVar1+" vs "+ nameVar2+")</h5></div>").appendTo("#show-cumulative-charts");
 										
 
 					//alert("friend_chartCount1="+friend_chartCount1);
@@ -4506,12 +4553,21 @@ function showComparison()
 					else if(friend_chartCount1 == friend_chartCount2)
 					{
 		
+
+						if(friend_chartCount1==0)
+						{
+							$("<div class='col-xs-6'>Member has not reported results to this experiment.</div>").appendTo("#cumulative-right");
+								
+						}
+						else{
+							
+							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+friend_chartCount1+
+							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar1+"</div>").appendTo("#cumulative-right");
+							
+							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+friend_chartCount2+
+							"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar2+"</div>").appendTo("#cumulative-right");			
+						}//end else
 		
-						$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+friend_chartCount1+
-						"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar1+"</div>").appendTo("#cumulative-right");
-						
-						$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+friend_chartCount2+
-						"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar2+"</div>").appendTo("#cumulative-right");
 					}
 					
 					else if(friend_chartCount1 < friend_chartCount2)
@@ -4525,196 +4581,185 @@ function showComparison()
 						"</div> <span style='color:white; font-size:0.8em'>"+avgTotalLabel+"</span> </div>"+nameVar2+"</div>").appendTo("#cumulative-right");
 					}	
 
-
-
-
-
-
-
-
-
-						
-						
-
 						var user_d1 = [];
 						var user_d2 = [];
 						var friend_d1 = [];
 						var friend_d2 = [];						
 						var xlabels = [];
-						
-						
-						
-						
 
 						/*
 						 * Daily data of the current user
 						 */
 			
-						for (var i = 0; i < timesPP.length; ++i) {
-							//alert("times[0]="+times[0]);
-							var xlabel = [];
-							xlabel.push(i+0.5, timesPP[i]);
-							xlabels.push(xlabel);
-			
-							user_d1.push([i, user_variable1_values[i]]);
-							user_d2.push([i+0.45, user_variable2_values[i]]);
-						}
-			
-			
-						var numDays = xlabels.length;
-						if(numDays<7)
+						if(timesPP.length>0)
 						{
-							//alert("numDays="+numDays);
-							var latestDate= xlabels[xlabels.length-1].toString();
-							var index = latestDate.indexOf(",")+1;
-							var latestDateString = latestDate.substr(index, latestDate.length-1);
-							var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-			
-							for(var x=numDays; x<7; x++)
-							{
-								var difference = x-numDays;
-								parsedDate.setDate(parsedDate.getDate()+1);
-								//alert("parsedDate-new="+parsedDate); 
-								var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-								//alert("newDate="+newDate);
-								
+							for (var i = 0; i < timesPP.length; ++i) {
+								//alert("times[0]="+times[0]);
 								var xlabel = [];
-								//xlabel.push(x, "Day"+ (x+1)+ " ");
-								xlabel.push(x+0.5, newDate);
+								xlabel.push(i+0.5, timesPP[i]);
 								xlabels.push(xlabel);
-								
-								user_d1.push([x, "nil"]);
-								user_d2.push([x, "nil"]);	
-							
-							}//end for
-						}//end if(xlabels.length<7)				
-						var ylabels = [];
-						ylabels[0] = nameVar2 + "=Yes";
-						ylabels[1] = nameVar2 + "=No";
-			
-						var user_data = [{
-							data : user_d1,
-							label : nameVar1,
-							color : "#98c734"
-						}, {
-							data : user_d2,
-							label : nameVar2,
-							color : "#fc972a",
-							yaxis : 2
-						}];
-
-						if ($("#content-daily").length != 0)
-						{
-							$("#content-daily").remove();
-						}
-										
-						if ($("#content-daily").length == 0)
-						{
-						//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
-						}						
-									
-
-						var placeholder = $("#placeholder-daily");
-			
-						var plot = $.plot(placeholder, user_data, {
-							/*
-							lines : {
-								show : true
-							},
-							*/
-							
-						series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-							
-							/*
-							points : {
-								show : true
-							},
-							*/
-							
-							xaxis : //{ ticks: xlabels, autoscaleMargin: 1},
-			
-							{
-			
-								tickLength : 0,
-								//min: 0.5,
-								//max: ticks.length+0.5,
-								ticks : xlabels,
-								rotateTicks : 90,
-								panRange: [-0.2, xlabels.length],
-								axisLabel: ' ',
-							},
-							yaxes : [{
-								min : 0,
-								panRange: false,
-								font: {color : "#98c734"},
-							}, {
-								position : "right",
-								panRange: false,
-								font: {color : "#fc972a"},
-							}],
-			
-							grid : {
-								hoverable : true,
-								clickable : true
-							},
-							legend : {
-								noColumns : 0,
-								container : $("#legendcontainer-daily")
-							},
-							pan: {
-								interactive: true
-							},
-			
-						});
-			
-						$("<div id='tooltip'></div>").css({
-							position : "absolute",
-							display : "none",
-							border : "1px solid #fdd",
-							padding : "2px",
-							"background-color" : "#fee",
-							opacity : 0.80
-						}).appendTo("body");
-			
-						placeholder.bind("plothover", function(event, pos, item) {
-			
-							//    if ($("#enablePosition:checked").length > 0)
-							{
-								var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
-								//$("#hoverdata").text(str);
+				
+								user_d1.push([i, user_variable1_values[i]]);
+								user_d2.push([i+0.45, user_variable2_values[i]]);
 							}
-			
-							//if ($("#enableTooltip:checked").length > 0)
+				
+				
+							var numDays = xlabels.length;
+							if(numDays<7)
 							{
+								//alert("numDays="+numDays);
+								var latestDate= xlabels[xlabels.length-1].toString();
+								var index = latestDate.indexOf(",")+1;
+								var latestDateString = latestDate.substr(index, latestDate.length-1);
+								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+				
+								for(var x=numDays; x<7; x++)
+								{
+									var difference = x-numDays;
+									parsedDate.setDate(parsedDate.getDate()+1);
+									//alert("parsedDate-new="+parsedDate); 
+									var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+									//alert("newDate="+newDate);
+									
+									var xlabel = [];
+									//xlabel.push(x, "Day"+ (x+1)+ " ");
+									xlabel.push(x+0.5, newDate);
+									xlabels.push(xlabel);
+									
+									user_d1.push([x, "nil"]);
+									user_d2.push([x, "nil"]);	
+								
+								}//end for
+							}//end if(xlabels.length<7)				
+							var ylabels = [];
+							ylabels[0] = nameVar2 + "=Yes";
+							ylabels[1] = nameVar2 + "=No";
+				
+							var user_data = [{
+								data : user_d1,
+								label : nameVar1,
+								color : "#98c734"
+							}, {
+								data : user_d2,
+								label : nameVar2,
+								color : "#fc972a",
+								yaxis : 2
+							}];
+	
+							if ($("#content-daily").length != 0)
+							{
+								$("#content-daily").remove();
+							}
+											
+							if ($("#content-daily").length == 0)
+							{
+							//alert("content-daily does not exist");
+								$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");		
+							}						
+										
+	
+							var placeholder = $("#placeholder-daily");
+				
+							var plot = $.plot(placeholder, user_data, {
+								/*
+								lines : {
+									show : true
+								},
+								*/
+								
+							series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
+								
+								/*
+								points : {
+									show : true
+								},
+								*/
+								
+								xaxis : //{ ticks: xlabels, autoscaleMargin: 1},
+				
+								{
+				
+									tickLength : 0,
+									//min: 0.5,
+									//max: ticks.length+0.5,
+									ticks : xlabels,
+									rotateTicks : 90,
+									panRange: [-0.2, xlabels.length],
+									axisLabel: ' ',
+								},
+								yaxes : [{
+									min : 0,
+									panRange: false,
+									font: {color : "#98c734"},
+								}, {
+									position : "right",
+									panRange: false,
+									font: {color : "#fc972a"},
+								}],
+				
+								grid : {
+									hoverable : true,
+									clickable : true
+								},
+								legend : {
+									noColumns : 0,
+									container : $("#legendcontainer-daily")
+								},
+								pan: {
+									interactive: true
+								},
+				
+							});
+				
+							$("<div id='tooltip'></div>").css({
+								position : "absolute",
+								display : "none",
+								border : "1px solid #fdd",
+								padding : "2px",
+								"background-color" : "#fee",
+								opacity : 0.80
+							}).appendTo("body");
+				
+							placeholder.bind("plothover", function(event, pos, item) {
+				
+								//    if ($("#enablePosition:checked").length > 0)
+								{
+									var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+									//$("#hoverdata").text(str);
+								}
+				
+								//if ($("#enableTooltip:checked").length > 0)
+								{
+									if (item) {
+										var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+				
+										$("#tooltip").html(item.series.label + " = " + y).css({
+											top : item.pageY + 5,
+											left : item.pageX + 5
+										}).fadeIn(200);
+				
+									} else {
+										$("#tooltip").hide();
+									}
+								}
+							});
+				
+							placeholder.bind("plotclick", function(event, pos, item) {
 								if (item) {
+									//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-			
+				
 									$("#tooltip").html(item.series.label + " = " + y).css({
 										top : item.pageY + 5,
 										left : item.pageX + 5
 									}).fadeIn(200);
-			
-								} else {
-									$("#tooltip").hide();
+				
+									plot.highlight(item.series, item.datapoint);
 								}
-							}
-						});
-			
-						placeholder.bind("plotclick", function(event, pos, item) {
-							if (item) {
-								//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-			
-								$("#tooltip").html(item.series.label + " = " + y).css({
-									top : item.pageY + 5,
-									left : item.pageX + 5
-								}).fadeIn(200);
-			
-								plot.highlight(item.series, item.datapoint);
-							}
-						});
-			
+							});
+										
+						}//end if(timesPP.length>0)
+
 						/*
 						 * Daily visualization of the friend
 						 */
@@ -4727,14 +4772,14 @@ function showComparison()
 						if ($("#comparison-individual").length == 0)
 						{
 						//alert("content-daily does not exist");
-							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 						}
   							
 						xlabels = [];
    						if(friend_dateTimes.length==0)
 						{
 							$("#placeholder-compare").remove();
-							$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+							$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 								
 						}//end if(friend_dateTimes.length==0) 							
 						
@@ -4989,18 +5034,6 @@ function showComparison()
 							}//end for								
 						}//end if(friendid!="MeVsAll")
 
-						
-					
-						
-					
-					/*	
-					if ($("#content-daily").length == 0)
-					{
-						$("<div id='content-daily' name='content-daily'> <div>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:800px;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
-						
-					}
-					*/
-
 					
 						/*
 						 * Cumulative visualization
@@ -5024,12 +5057,22 @@ function showComparison()
 							
 						if(user_count1 == user_count2)
 						{
-			
-							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_count1+
-							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": Yes</div>").appendTo("#cumulative-left");
 							
-							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_count2+
-							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": No</div>").appendTo("#cumulative-left");
+								if(user_count1==0)
+				                {
+									
+									//$("#show-cumulative-charts").empty();
+	
+										$("<div class='col-xs-6'>You have not reported results to this experiment. Please report them.</div>").appendTo("#cumulative-left");					                	
+				                }
+				                else{
+				                	
+									$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_count1+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": Yes</div>").appendTo("#cumulative-left");
+									
+									$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+user_count2+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": No</div>").appendTo("#cumulative-left");				                	
+				                }//end else
 						}
 						
 						if(user_count1 < user_count2)
@@ -5043,7 +5086,7 @@ function showComparison()
 						
 
 						$("#show-comparison-charts").empty();
-						$("<div class='col-md-6 row' id='cumulative-left2'><h5>Friend's Results: "+nameVar+"<h5></div>").appendTo("#show-comparison-charts");
+						$("<div class='col-md-6 row' id='cumulative-left2'><h5>Member's Results: "+nameVar+"<h5></div>").appendTo("#show-comparison-charts");
 						if(friend_count1 > friend_count2)
 						{
 							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_count1+
@@ -5057,11 +5100,23 @@ function showComparison()
 						if(friend_count1 == friend_count2)
 						{
 			
-							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_count1+
-							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": Yes</div>").appendTo("#cumulative-left2");
+								if(friend_count1==0)
+				                {
+									
+									//$("#show-cumulative-charts").empty();
+	
+									$("<div class='col-xs-6'>Member has not reported results to this experiment.</div>").appendTo("#cumulative-left2");					                	
+				                }
+				                else{
+				                	
+				                	$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_count1+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": Yes</div>").appendTo("#cumulative-left2");
 							
-							$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+friend_count2+
-							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": No</div>").appendTo("#cumulative-left2");
+									$("<div class='col-xs-6'><div class='bigCircle orange2'> <div class='big_white'>"+friend_count2+
+									"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar+": No</div>").appendTo("#cumulative-left2");
+				                }			
+			
+
 						}
 						
 						if(friend_count1 < friend_count2)
@@ -5081,176 +5136,178 @@ function showComparison()
 						/*
 						 * Daily visualization of the current participant
 						 */
-						
-					
-						var xlabels = [];
-						for(var i=0; i< user_variable_values.length; i++)
+						if(timesPP.length>0)
 						{
-							//alert("valuesPP_temp["+i+"]="+valuesPP_temp[i]);
-							if(user_variable_values[i]==1)
-								user_d1.push([i, 1]);
-								
-							if(user_variable_values[i]==0)
-								user_d2.push([i, 1]);							
-						}//end for
-						
-
-						for (var i = 0; i < timesPP.length; ++i) 
-						{
-							//alert("times["+i+"]="+timesPP[i]);
-							var xlabel = [];
-							xlabel.push(i+0.5, timesPP[i]);
-							xlabels.push(xlabel);
-						}//end for						
-
-						var numDays = xlabels.length;
-						if(numDays<7)
-						{
-			
-							var latestDate= xlabels[xlabels.length-1].toString();
-							var index = latestDate.indexOf(",")+1;
-							var latestDateString = latestDate.substr(index, latestDate.length-1);
-							var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-			
-							for(var x=numDays; x<7; x++)
+							var xlabels = [];
+							for(var i=0; i< user_variable_values.length; i++)
 							{
-								parsedDate.setDate(parsedDate.getDate()+1);
-								//alert("parsedDate-new="+parsedDate); 
-								var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-								//alert("newDate="+newDate);
-								
-								var xlabel = [];
-								//xlabel.push(x, "Day"+ (x+1)+ " ");
-								xlabel.push(x+0.5, newDate);
-								xlabels.push(xlabel);
-								
-								user_d1.push([x, "nil"]);
-								user_d2.push([x+0.45, "nil"]);	
-							
+								//alert("valuesPP_temp["+i+"]="+valuesPP_temp[i]);
+								if(user_variable_values[i]==1)
+									user_d1.push([i, 1]);
+									
+								if(user_variable_values[i]==0)
+									user_d2.push([i, 1]);							
 							}//end for
-						}//end if(xlabels.length<7)
-		
-						
-						
-						var ylabels = [];
-						ylabels[0] = nameVar + "=Yes";
-						ylabels[1] = nameVar + "=No";
-						
-						var user_data = [{
-							data : user_d1,
-							label : nameVar + "=Yes",
-							color : "#98c734"
-						}, {
-							data : user_d2,
-							label : nameVar + "=No",
-							color : "#fc972a"
-						}];
-			
-						
-						
-						//$("#show-daily-charts").empty();
-						
-						if($("#content-daily").length != 0)
-						{
-							$("#content-daily").remove();
-						}
-						if($("#content-daily").length == 0)
-						{
-							//alert("content-daily does not exist");
-							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
 							
-						}
-								
-						var placeholder = $("#placeholder-daily");
-						var plot = $.plot(placeholder, user_data, 
-						{
-
-							series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-							/*
-							bars : {
-								show : true,
-								barWidth : 0.5,
-								fill : 0.9
-							},
-							*/
-							
-							xaxis : {
-								tickLength : 0,
-								//min: 0.5,
-								//max: ticks.length+0.5,
-								ticks : xlabels,
-								rotateTicks : 90,
-								panRange: [-0.1, xlabels.length],
-								axisLabel: ' ', 
-							},
-							yaxis : {
-								//ticks : [[0.5, "Yes"], [-0.5, "No"]],
-								//axisLabel : nameVar1,
-								panRange: false,
-							},
-							grid : {
-								hoverable : true,
-								clickable : true
-							},
-							legend : {
-								noColumns : 0,
-								container : $("#legendcontainer-daily")
-							},
-							pan: {
-								interactive: true
-							},
-							
-						});
-						
 	
-						$("<div id='tooltip'></div>").css({
-							position : "absolute",
-							display : "none",
-							border : "1px solid #fdd",
-							padding : "2px",
-							"background-color" : "#fee",
-							opacity : 0.80
-						}).appendTo("body");
-			
-						placeholder.bind("plothover", function(event, pos, item) {
-			
-							//    if ($("#enablePosition:checked").length > 0)
+							for (var i = 0; i < timesPP.length; ++i) 
 							{
-								var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
-								//$("#hoverdata").text(str);
+								//alert("times["+i+"]="+timesPP[i]);
+								var xlabel = [];
+								xlabel.push(i+0.5, timesPP[i]);
+								xlabels.push(xlabel);
+							}//end for						
+	
+							var numDays = xlabels.length;
+							if(numDays<7)
+							{
+				
+								var latestDate= xlabels[xlabels.length-1].toString();
+								var index = latestDate.indexOf(",")+1;
+								var latestDateString = latestDate.substr(index, latestDate.length-1);
+								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+				
+								for(var x=numDays; x<7; x++)
+								{
+									parsedDate.setDate(parsedDate.getDate()+1);
+									//alert("parsedDate-new="+parsedDate); 
+									var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+									//alert("newDate="+newDate);
+									
+									var xlabel = [];
+									//xlabel.push(x, "Day"+ (x+1)+ " ");
+									xlabel.push(x+0.5, newDate);
+									xlabels.push(xlabel);
+									
+									user_d1.push([x, "nil"]);
+									user_d2.push([x+0.45, "nil"]);	
+								
+								}//end for
+							}//end if(xlabels.length<7)
+			
+							
+							
+							var ylabels = [];
+							ylabels[0] = nameVar + "=Yes";
+							ylabels[1] = nameVar + "=No";
+							
+							var user_data = [{
+								data : user_d1,
+								label : nameVar + "=Yes",
+								color : "#98c734"
+							}, {
+								data : user_d2,
+								label : nameVar + "=No",
+								color : "#fc972a"
+							}];
+				
+							
+							
+							//$("#show-daily-charts").empty();
+							
+							if($("#content-daily").length != 0)
+							{
+								$("#content-daily").remove();
 							}
-			
-							//if ($("#enableTooltip:checked").length > 0)
+							if($("#content-daily").length == 0)
 							{
+								//alert("content-daily does not exist");
+								$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+								
+							}
+									
+							var placeholder = $("#placeholder-daily");
+							var plot = $.plot(placeholder, user_data, 
+							{
+	
+								series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
+								/*
+								bars : {
+									show : true,
+									barWidth : 0.5,
+									fill : 0.9
+								},
+								*/
+								
+								xaxis : {
+									tickLength : 0,
+									//min: 0.5,
+									//max: ticks.length+0.5,
+									ticks : xlabels,
+									rotateTicks : 90,
+									panRange: [-0.1, xlabels.length],
+									axisLabel: ' ', 
+								},
+								yaxis : {
+									//ticks : [[0.5, "Yes"], [-0.5, "No"]],
+									//axisLabel : nameVar1,
+									panRange: false,
+								},
+								grid : {
+									hoverable : true,
+									clickable : true
+								},
+								legend : {
+									noColumns : 0,
+									container : $("#legendcontainer-daily")
+								},
+								pan: {
+									interactive: true
+								},
+								
+							});
+							
+		
+							$("<div id='tooltip'></div>").css({
+								position : "absolute",
+								display : "none",
+								border : "1px solid #fdd",
+								padding : "2px",
+								"background-color" : "#fee",
+								opacity : 0.80
+							}).appendTo("body");
+				
+							placeholder.bind("plothover", function(event, pos, item) {
+				
+								//    if ($("#enablePosition:checked").length > 0)
+								{
+									var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
+									//$("#hoverdata").text(str);
+								}
+				
+								//if ($("#enableTooltip:checked").length > 0)
+								{
+									if (item) {
+										var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+				
+										$("#tooltip").html(item.series.label).css({
+											top : item.pageY + 5,
+											left : item.pageX + 5
+										}).fadeIn(200);
+				
+									} else {
+										$("#tooltip").hide();
+									}
+								}
+							});
+				
+							placeholder.bind("plotclick", function(event, pos, item) {
 								if (item) {
+									//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 			
+				
 									$("#tooltip").html(item.series.label).css({
 										top : item.pageY + 5,
 										left : item.pageX + 5
 									}).fadeIn(200);
-			
-								} else {
-									$("#tooltip").hide();
+				
+									plot.highlight(item.series, item.datapoint);
 								}
-							}
-						});
-			
-						placeholder.bind("plotclick", function(event, pos, item) {
-							if (item) {
-								//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-		
-			
-								$("#tooltip").html(item.series.label).css({
-									top : item.pageY + 5,
-									left : item.pageX + 5
-								}).fadeIn(200);
-			
-								plot.highlight(item.series, item.datapoint);
-							}
-						});								
-						
+							});								
+							
+
+						}//end if(timesPP.length>0)
 
 						/*
 						 * Daily visualization of the friend
@@ -5264,7 +5321,7 @@ function showComparison()
 						
 						if ($("#comparison-individual").length == 0)
 						{
-							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+							$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 						}
 
 						if(friendId!="MeVsAll")
@@ -5272,7 +5329,8 @@ function showComparison()
 							
 	   						if(friend_variable_values.length==0)
 							{
-								$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+								$("#placeholder-compare").remove();
+								$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 									
 							}//end if(friend_variable_values.length==0) 								
 							
@@ -5424,157 +5482,172 @@ function showComparison()
 				
 						else if(friendId=="MeVsAll")
 						{
-							var xlabels = [];
-							for(var i=0; i< all_variable_values.length; i++)
-							{
-								//alert("all_variable_values[i][0]="+all_variable_values[i][0]);
-								friend_d1.push([i, all_variable_values[i][0] ]);
-								friend_d2.push([i+0.45, all_variable_values[i][1] ]);						
-							}//end for
-							
-							//alert("times.length="+times.length);
 							
 							
-							for (var i = 0; i < times.length; ++i) 
+	   						if(times.length==0)
 							{
-								//alert("times["+i+"]="+timesPP[i]);
-								var xlabel = [];
-								xlabel.push(i+0.5, times[i]);
-								xlabels.push(xlabel);
-							}//end for						
-	
-							var numDays = xlabels.length;
-							if(numDays<7)
-							{
-				
-								var latestDate= xlabels[xlabels.length-1].toString();
-								var index = latestDate.indexOf(",")+1;
-								var latestDateString = latestDate.substr(index, latestDate.length-1);
-								var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-				
-								for(var x=numDays; x<7; x++)
-								{
-									parsedDate.setDate(parsedDate.getDate()+1);
-									//alert("parsedDate-new="+parsedDate); 
-									var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-									//alert("newDate="+newDate);
-									
-									var xlabel = [];
-									//xlabel.push(x, "Day"+ (x+1)+ " ");
-									xlabel.push(x+0.5, newDate);
-									xlabels.push(xlabel);
-									
-									friend_d1.push([x, "nil"]);
-									friend_d2.push([x+0.45, "nil"]);	
 								
+								$("#placeholder-compare").remove();
+								$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+									
+							}//end if(times.length==0)
+							
+							if(times.length>0)
+							{ 	
+								var xlabels = [];
+								for(var i=0; i< all_variable_values.length; i++)
+								{
+									//alert("all_variable_values[i][0]="+all_variable_values[i][0]);
+									friend_d1.push([i, all_variable_values[i][0] ]);
+									friend_d2.push([i+0.45, all_variable_values[i][1] ]);						
 								}//end for
-							}//end if(xlabels.length<7)
+								
+								//alert("times.length="+times.length);
+								
+								
+								for (var i = 0; i < times.length; ++i) 
+								{
+									//alert("times["+i+"]="+timesPP[i]);
+									var xlabel = [];
+									xlabel.push(i+0.5, times[i]);
+									xlabels.push(xlabel);
+								}//end for						
+		
+								var numDays = xlabels.length;
+								if(numDays<7)
+								{
+					
+									var latestDate= xlabels[xlabels.length-1].toString();
+									var index = latestDate.indexOf(",")+1;
+									var latestDateString = latestDate.substr(index, latestDate.length-1);
+									var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+					
+									for(var x=numDays; x<7; x++)
+									{
+										parsedDate.setDate(parsedDate.getDate()+1);
+										//alert("parsedDate-new="+parsedDate); 
+										var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+										//alert("newDate="+newDate);
+										
+										var xlabel = [];
+										//xlabel.push(x, "Day"+ (x+1)+ " ");
+										xlabel.push(x+0.5, newDate);
+										xlabels.push(xlabel);
+										
+										friend_d1.push([x, "nil"]);
+										friend_d2.push([x+0.45, "nil"]);	
+									
+									}//end for
+								}//end if(xlabels.length<7)
+				
+								
+								
+								var ylabels = [];
+								ylabels[0] = nameVar + "=Yes";
+								ylabels[1] = nameVar + "=No";
+								
+								var friend_data = [{
+									data : friend_d1,
+									label : nameVar + "=Yes",
+									color : "#82a538"
+								}, {
+									data : friend_d2,
+									label : nameVar + "=No",
+									color : "#dc780d"
+								}];
+									
+								var placeholder2 = $("#placeholder-compare");
+								
+								var plot2 = $.plot(placeholder2, friend_data, {
+									/*
+									lines : {
+										show : true,
+									},
+									*/
+									
+									series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
 			
-							
-							
-							var ylabels = [];
-							ylabels[0] = nameVar + "=Yes";
-							ylabels[1] = nameVar + "=No";
-							
-							var friend_data = [{
-								data : friend_d1,
-								label : nameVar + "=Yes",
-								color : "#82a538"
-							}, {
-								data : friend_d2,
-								label : nameVar + "=No",
-								color : "#dc780d"
-							}];
+									xaxis : {
+										tickLength : 0,
+										//min: 0.5,
+										//max: ticks.length+0.5,
+										ticks : xlabels,
+										rotateTicks : 90,
+										panRange: [-0.1, xlabels.length],
+										axisLabel: ' ', 
+									},
+									yaxis : {
+										//ticks : [[0.5, "Yes"], [-0.5, "No"]],
+										axisLabel : 'No. of Data Entries',
+										panRange: false,
+									},
+									grid : {
+										hoverable : true,
+										clickable : true
+									},
+									legend : {
+										noColumns : 0,
+										container : $("#legendcontainer-compare")
+									},
+									pan: {
+										interactive: true
+									},
+									
+								});
 								
-							var placeholder2 = $("#placeholder-compare");
-							
-							var plot2 = $.plot(placeholder2, friend_data, {
-								/*
-								lines : {
-									show : true,
-								},
-								*/
-								
-								series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-		
-								xaxis : {
-									tickLength : 0,
-									//min: 0.5,
-									//max: ticks.length+0.5,
-									ticks : xlabels,
-									rotateTicks : 90,
-									panRange: [-0.1, xlabels.length],
-									axisLabel: ' ', 
-								},
-								yaxis : {
-									//ticks : [[0.5, "Yes"], [-0.5, "No"]],
-									axisLabel : 'No. of Data Entries',
-									panRange: false,
-								},
-								grid : {
-									hoverable : true,
-									clickable : true
-								},
-								legend : {
-									noColumns : 0,
-									container : $("#legendcontainer-compare")
-								},
-								pan: {
-									interactive: true
-								},
-								
-							});
-							
-		
-							$("<div id='tooltip'></div>").css({
-								position : "absolute",
-								display : "none",
-								border : "1px solid #fdd",
-								padding : "2px",
-								"background-color" : "#fee",
-								opacity : 0.80
-							}).appendTo("body");
-				
-							placeholder2.bind("plothover", function(event, pos, item) {
-				
-								//    if ($("#enablePosition:checked").length > 0)
-								{
-									var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
-									//$("#hoverdata").text(str);
-								}
-				
-								//if ($("#enableTooltip:checked").length > 0)
-								{
+			
+								$("<div id='tooltip'></div>").css({
+									position : "absolute",
+									display : "none",
+									border : "1px solid #fdd",
+									padding : "2px",
+									"background-color" : "#fee",
+									opacity : 0.80
+								}).appendTo("body");
+					
+								placeholder2.bind("plothover", function(event, pos, item) {
+					
+									//    if ($("#enablePosition:checked").length > 0)
+									{
+										var str = "(" + pos.x.toFixed(2) + "," + pos.y.toFixed(2) + ")";
+										//$("#hoverdata").text(str);
+									}
+					
+									//if ($("#enableTooltip:checked").length > 0)
+									{
+										if (item) {
+											var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+					
+					
+											top : item.pageY + 5,
+											$("#tooltip").html(item.series.label+ " = " + y).css({
+												top : item.pageY + 5,
+												left : item.pageX + 5
+											}).fadeIn(200);
+					
+										} else {
+											$("#tooltip").hide();
+										}
+									}
+								});
+					
+								placeholder2.bind("plotclick", function(event, pos, item) {
 									if (item) {
+										//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 										var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
 				
-				
-										top : item.pageY + 5,
+					
 										$("#tooltip").html(item.series.label+ " = " + y).css({
 											top : item.pageY + 5,
 											left : item.pageX + 5
 										}).fadeIn(200);
-				
-									} else {
-										$("#tooltip").hide();
+					
+										plot2.highlight(item.series, item.datapoint);
 									}
-								}
-							});
-				
-							placeholder2.bind("plotclick", function(event, pos, item) {
-								if (item) {
-									//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-			
-				
-									$("#tooltip").html(item.series.label+ " = " + y).css({
-										top : item.pageY + 5,
-										left : item.pageX + 5
-									}).fadeIn(200);
-				
-									plot2.highlight(item.series, item.datapoint);
-								}
-							});				
+								});				
+							}//end if(times.length>0)
+														
+	
 														
 						}//end if(friendId=="MeVsAll")				
 
@@ -5643,193 +5716,222 @@ function showComparison()
 					$("#show-cumulative-charts").empty();
 					$("<div class='col-md-6 row' id='cumulative-left'><h5>My Results: "+nameVar+"<h5></div>").appendTo("#show-cumulative-charts");
 					
-					if(user_avgScore>friend_avgScore)
+				
+										
+					//if(user_variable_values.length>0 && friend_variable_values.length>0)
 					{
-						$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-md-6 row'id='cumulative-right'> <h5>Friend's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
-						
-						$("<div class='col-xs-6'><div class='smallCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");
-												
-					}//end if(user_avgScore>=friend_avgScore)
-					else if(user_avgScore==friend_avgScore)
+
+						if(user_avgScore>friend_avgScore)
+						{
+							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
+							
+							$("<div class='col-md-6 row'id='cumulative-right'> <h5>Member's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
+							
+							$("<div class='col-xs-6'><div class='smallCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");
+													
+						}//end if(user_avgScore>=friend_avgScore)
+						else if(user_avgScore==friend_avgScore)
+						{
+							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
+							
+							$("<div class='col-md-6 row'id='cumulative-right'> <h5>Member's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
+							
+							
+							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");						
+						}
+										
+						else if(user_avgScore<friend_avgScore)
+						{
+							$("<div class='col-xs-6'><div class='smallCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
+							
+							$("<div class='col-md-6 row'id='cumulative-right'> <h5>Member's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
+							
+							
+							$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
+							"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");						
+						}
+
+					}//end if(user_variable_values.length>0 && friend_variable_values.length>0)
+					
+
+					if(user_variable_values.length==0 )
 					{
-						$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-md-6 row'id='cumulative-right'> <h5>Friend's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
-						
-						
-						$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");						
+							$("#cumulative-left").empty();
+							//$("<div class='col-md-6 row' id='cumulative-left'><h5>My Results: "+nameVar+"<h5></div>").appendTo("#show-cumulative-charts");
+							$("<div>You have not reported results to this experiment. Please report them.</div>").appendTo("#cumulative-left");						
 					}
-									
-					else if(user_avgScore<friend_avgScore)
+
+					if(friend_variable_values.length==0 )
 					{
-						$("<div class='col-xs-6'><div class='smallCircle green1'> <div class='big_white'>"+user_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-left");
-						
-						$("<div class='col-md-6 row'id='cumulative-right'> <h5>Friend's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");
-						
-						
-						$("<div class='col-xs-6'><div class='bigCircle green2'> <div class='big_white'>"+friend_avgScore.toFixed(1)+
-						"</div><span style='color:white; font-size:0.8em'>Average</span></div></div>").appendTo("#cumulative-right");						
-					}
+							$("#cumulative-right").empty();
+							//$("<div class='col-md-6 row'id='cumulative-right'> <h5>Member's Results: "+nameVar+"<h5>  </div>").appendTo("#show-cumulative-charts");							
+							$("<div>Member has not reported results to this experiment.</div>").appendTo("#cumulative-right");						
+					}	
 				
 		
 					/*
-					 * Daily visualizations
+					 * Daily visualizations of the user
 					 */
 					
-					
-					for (var i = 0; i < timesPP.length; ++i) 
+					if(timesPP.length > 0)
 					{
-						//alert("times[0]="+times[0]);
-						var xlabel = [];
-						xlabel.push(i+0.5, timesPP[i]);
-						xlabels.push(xlabel);
-		
-						user_d1.push([i, user_variable_values[i]]);
-					}					
-
-
-					var numDays = xlabels.length;
-					if(numDays<7)
-					{
-						//alert("numDays="+numDays);
-						var latestDate= xlabels[xlabels.length-1].toString();
-						var index = latestDate.indexOf(",")+1;
-						var latestDateString = latestDate.substr(index, latestDate.length-1);
-						var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
-		
-						for(var x=numDays; x<7; x++)
+						for (var i = 0; i < timesPP.length; ++i) 
 						{
-							var difference = x-numDays;
-							parsedDate.setDate(parsedDate.getDate()+1);
-							//alert("parsedDate-new="+parsedDate); 
-							var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
-							//alert("newDate="+newDate);
-							
+							//alert("times[0]="+times[0]);
 							var xlabel = [];
-							//xlabel.push(x, "Day"+ (x+1)+ " ");
-							xlabel.push(x+0.5, newDate);
+							xlabel.push(i+0.5, timesPP[i]);
 							xlabels.push(xlabel);
-							
-							user_d1.push([x, "nil"]);
+			
+							user_d1.push([i, user_variable_values[i]]);
+						}					
+	
+	
+						var numDays = xlabels.length;
+						if(numDays<7)
+						{
+							//alert("numDays="+numDays);
+							var latestDate= xlabels[xlabels.length-1].toString();
+							var index = latestDate.indexOf(",")+1;
+							var latestDateString = latestDate.substr(index, latestDate.length-1);
+							var parsedDate = $.datepicker.parseDate("dd-mm-yy", latestDateString);		
+			
+							for(var x=numDays; x<7; x++)
+							{
+								var difference = x-numDays;
+								parsedDate.setDate(parsedDate.getDate()+1);
+								//alert("parsedDate-new="+parsedDate); 
+								var newDate = parsedDate.getDate() + '-' + (parsedDate.getMonth() + 1) + '-' +  parsedDate.getFullYear();
+								//alert("newDate="+newDate);
 								
+								var xlabel = [];
+								//xlabel.push(x, "Day"+ (x+1)+ " ");
+								xlabel.push(x+0.5, newDate);
+								xlabels.push(xlabel);
+								
+								user_d1.push([x, "nil"]);
+									
+							
+							}//end for
+						}//end if(xlabels.length<7)		
 						
-						}//end for
-					}//end if(xlabels.length<7)		
-					
-					var user_data = [{
-						data : user_d1,
-						label : nameVar,
-						color : "#98c734"
-					}];
-					
-
-					if($("#content-daily").length != 0)
-					{
-						$("#content-daily").remove();
-					}
-					if($("#content-daily").length == 0)
-					{
-						//alert("content-daily does not exist");
-						$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+						var user_data = [{
+							data : user_d1,
+							label : nameVar,
+							color : "#98c734"
+						}];
 						
-					}		
-					var placeholder = $("#placeholder-daily");
-		
-					var plot = $.plot(placeholder, user_data, {
-						/*
-						lines : {
-							show : true
-						},
-						points : {
-							show : true
-						},
-						*/
-						
-						series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
-										
-						xaxis : //{ ticks: xlabels, autoscaleMargin: 1},
+	
+						if($("#content-daily").length != 0)
 						{
-		
-							tickLength : 0,
-							//min: 0.5,
-							//max: ticks.length+0.5,
-							ticks : xlabels,
-							rotateTicks : 90,
-							panRange: [-0.2, xlabels.length],
-							axisLabel: ' ',
-		
-						},
-						yaxis : {
-							panRange: false,
-						}, 
-						grid : {
-							hoverable : true,
-							clickable : true
-						},
-						legend : {
-							noColumns : 0,
-							container : $("#legendcontainer-daily")
-						},
-						pan: {
-							interactive: true
-						},
-		
-					});
-		
-					$("<div id='tooltip'></div>").css({
-						position : "absolute",
-						display : "none",
-						border : "1px solid #fdd",
-						padding : "2px",
-						"background-color" : "#fee",
-						opacity : 0.80
-					}).appendTo("body");
-		
-					placeholder.bind("plothover", function(event, pos, item) {
-		
-						//    if ($("#enablePosition:checked").length > 0)
-						{
-							var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
-							//$("#hoverdata").text(str);
+							$("#content-daily").remove();
 						}
-		
-						//if ($("#enableTooltip:checked").length > 0)
+						if($("#content-daily").length == 0)
 						{
+							//alert("content-daily does not exist");
+							$("<div id='content-daily' name='content-daily'> <div style='text-align:center; width:80%;'>My Results (daily)</div> <div id='legendcontainer-daily'></div> <div id='placeholder-daily' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-daily-charts");
+							
+						}		
+						var placeholder = $("#placeholder-daily");
+			
+						var plot = $.plot(placeholder, user_data, {
+							/*
+							lines : {
+								show : true
+							},
+							points : {
+								show : true
+							},
+							*/
+							
+							series: { bars: { show: true, barWidth:0.43, fill: 0.9}, shadowSize: 0 },
+											
+							xaxis : //{ ticks: xlabels, autoscaleMargin: 1},
+							{
+			
+								tickLength : 0,
+								//min: 0.5,
+								//max: ticks.length+0.5,
+								ticks : xlabels,
+								rotateTicks : 90,
+								panRange: [-0.2, xlabels.length],
+								axisLabel: ' ',
+			
+							},
+							yaxis : {
+								panRange: false,
+							}, 
+							grid : {
+								hoverable : true,
+								clickable : true
+							},
+							legend : {
+								noColumns : 0,
+								container : $("#legendcontainer-daily")
+							},
+							pan: {
+								interactive: true
+							},
+			
+						});
+			
+						$("<div id='tooltip'></div>").css({
+							position : "absolute",
+							display : "none",
+							border : "1px solid #fdd",
+							padding : "2px",
+							"background-color" : "#fee",
+							opacity : 0.80
+						}).appendTo("body");
+			
+						placeholder.bind("plothover", function(event, pos, item) {
+			
+							//    if ($("#enablePosition:checked").length > 0)
+							{
+								var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+								//$("#hoverdata").text(str);
+							}
+			
+							//if ($("#enableTooltip:checked").length > 0)
+							{
+								if (item) {
+									var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
+			
+									$("#tooltip").html(item.series.label + " = " + y).css({
+										top : item.pageY + 5,
+										left : item.pageX + 5
+									}).fadeIn(200);
+			
+								} else {
+									$("#tooltip").hide();
+								}
+							}
+						});
+			
+						placeholder.bind("plotclick", function(event, pos, item) {
 							if (item) {
+								//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
 								var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-		
+			
 								$("#tooltip").html(item.series.label + " = " + y).css({
 									top : item.pageY + 5,
 									left : item.pageX + 5
 								}).fadeIn(200);
-		
-							} else {
-								$("#tooltip").hide();
+			
+								plot.highlight(item.series, item.datapoint);
 							}
-						}
-					});
-		
-					placeholder.bind("plotclick", function(event, pos, item) {
-						if (item) {
-							//$("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
-							var x = item.datapoint[0].toFixed(2), y = item.datapoint[1].toFixed(2);
-		
-							$("#tooltip").html(item.series.label + " = " + y).css({
-								top : item.pageY + 5,
-								left : item.pageX + 5
-							}).fadeIn(200);
-		
-							plot.highlight(item.series, item.datapoint);
-						}
-					});			
+						});			
+											
+					}//end if(timesPP.length > 0)
 					
+
+					/*
+					 * Daily visualization of the friend
+					 */
 					//$("#show-comparison-daily-charts").empty();	
 					if ($("#comparison-individual").length != 0)
 					{
@@ -5838,14 +5940,14 @@ function showComparison()
 					
 					if ($("#comparison-individual").length == 0)
 					{
-						$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Friend's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
+						$("<div id='comparison-individual' name='comparison-individual'> <div style='text-align:center; width:80%;'>Member's Results (daily)</div> <div id='legendcontainer-compare'></div> <div id='placeholder-compare' class='demo-placeholder' style='height:400px; width:80%;'></div> <span id='hoverdata'></span> <span id='clickdata'></span> </div>").appendTo("#show-comparison-daily-charts");		
 					}
 										
 					//alert("one count/score, one nothing. friend_dateTimes.length="+friend_dateTimes.length);
 					if(friend_dateTimes.length==0)
 					{
 						$("#placeholder-compare").remove();
-						$("<div>Your friend has not reported results to this experiment. </div>").appendTo("#comparison-individual");
+						$("<div>Member has not reported results to this experiment. </div>").appendTo("#comparison-individual");
 							
 					}//end if(friend_dateTimes.length==0) 						
 					
@@ -7261,10 +7363,14 @@ function showAllResults()
 							}
 						});						
 						
-										 
+			 
 							 		
 		    		}//end else if(typeVar1=="binary" || typeVar2=="binary")
-		    		
+		    		else if(typeVar1!="binary" || typeVar2!="binary")
+		    		{
+		    			
+		    			
+		    		}
 		    		
 		    		
 		    		

@@ -1,4 +1,5 @@
-<?php 
+<?php
+	flush();
 	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 	$filePath = "$root/ajaxfiles/reportExperiment.php";
 	include "$root/ajaxfiles/reportExperiment.php";
@@ -9,7 +10,7 @@
 ?>
 
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://www.myliferocket.com/jquery/jquery-ui.css">
 <link rel="stylesheet" href="http://www.myliferocket.com/flot/examples/examples.css" type="text/css">
 <link href="http://www.myliferocket.com/flot/examples/shared/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="http://www.myliferocket.com/datepicker/lib/themes/default.css" id="theme_base">
@@ -118,12 +119,7 @@
 	display:none!important;
 }
 
-
 </style>
-
-<!-- Javascript -->
-
-
 
 
 	<!-- jquery -->
@@ -134,28 +130,14 @@
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/examples/shared/jquery-ui/jquery-ui.min.js"></script>
 <!--script type="text/javascript" src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.js"></script-->
 
-	<!-- flot -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
-
-	<!-- datepicker -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.date.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.time.js"></script>
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/legacy.js"></script>
-
 	<!-- uislider -->
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/uislider/jquery.nouislider.min.js"></script>
-
 	<!-- bootstrap -->
 <script language="javascript" type="text/javascript" src="http://www.myliferocket.com/wp-includes/js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript" src='http://www.myliferocket.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/bootstrap-switch.min.js'></script>
 
-	<!-- showExperimentResultsComparison -->
-<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
+
+
 
 
 <?php if ( is_user_logged_in() && bp_experiment_is_member() ) : ?>
@@ -249,6 +231,13 @@
 <div id='saveMessage'></div>
 <div class='sidebar'>
 <div class='row'>
+	
+	<!-- datepicker -->
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.date.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/picker.time.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/datepicker/lib/legacy.js"></script>
+	
 <script>
 
 	var comparisonShown = 0;
@@ -1265,6 +1254,11 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
             <h1>Cumulative Results</h1>
             <p></p>
  
+	 		<div id="show-cumulative-charts" class='row'>                    
+			</div>
+
+			<div id="show-comparison-charts" class='row'>
+	        </div>
  
 		 <?php
 		    
@@ -1275,7 +1269,16 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 		     
     		if(count($dateTimesPP) == 0)
 		    {
-		        echo "<br><br>You have not reported your results to this experiment. Please report them.";
+
+		  
+			  	$script = "<script>
+					$(document).ready(function() {
+						
+					$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-cumulative-charts');	
+						});
+						</script>";
+			      echo $script;
+
 		    }
     
     		if(count($dateTimesPP) > 0)
@@ -1667,7 +1670,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 				else if ((typeVar1 == "score" || typeVar1 == "count") && (typeVar2 == "score" || typeVar2 == "count")) 
 				{
 					//alert("count/score vs. count/score");
-					var user_correlationValue = mathUtils.getPearsonsCorrelation(valuesPP1, valuesPP2);
+					//var user_correlationValue = mathUtils.getPearsonsCorrelation(valuesPP1, valuesPP2);
 					//var user_correlationValue = 2.0;
 					//alert("user_correlationValue="+user_correlationValue);
 					//alert("valuesPP1.length="+valuesPP1.length);
@@ -1775,13 +1778,7 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 		</script>
 		
 
-		<div id="show-cumulative-charts" class='row'>
-		                            
-		</div>
 
-		<div id="show-comparison-charts" class='row'>
-                 
-        </div>
 		
 		
 		<?php
@@ -1798,18 +1795,22 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
             <p></p>
             
 				<div name="show-daily-charts" id="show-daily-charts">
-	               
 				</div>       
 	            
 	            <div name="show-comparison-daily-charts" id="show-comparison-daily-charts">
-	                    
 	            </div>
 	            
 	            <?php
 	    
 	    		if(count($dateTimesPP) == 0)
 			    {
-			        echo "<br><br>You have not reported your results to this experiment. Please report them.";
+			        $script = "<script>
+					$(document).ready(function() {
+						
+					$('<div>You have not reported results to this experiment. Please report them.</div>').appendTo('#show-daily-charts');	
+						});
+						</script>";
+			      	echo $script;
 			    }
 	    
 	    		if(count($dateTimesPP) > 0)
@@ -2389,9 +2390,6 @@ for ($x = 0; $x < count($dateTimesPP); $x++)
 		?>
 
 
-	    
-	    
-	    
 	    </div><!-- end div id='detail'-->
 
     </div>
@@ -2457,3 +2455,17 @@ else:?>
 </script>
     <?php ;endif; ?><!-- end  (is_user_logged_in() && bp_experiment_is_member() ) -->
 </div>
+
+
+<!-- Javascript -->
+
+	<!-- flot -->
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.tickrotor.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.axislabels.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.navigate.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/flot/jquery.flot.resize.js"></script>
+
+
+	<!-- showExperimentResultsComparison -->
+<script language="javascript" type="text/javascript" src="http://www.myliferocket.com/ajaxfiles/showExperimentResults.js"></script>
