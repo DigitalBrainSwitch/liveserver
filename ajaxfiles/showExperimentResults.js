@@ -1,90 +1,3 @@
-var mathUtils = {};
-mathUtils.getPearsonsCorrelation = function(x, y) 
-{
-	var answer = 0;
-	var shortestArrayLength = 0;
-	if(x.length == y.length)
-	{
-		shortestArrayLength = x.length;
-	}
-	else if(x.length > y.length)
-	{
-		shortestArrayLength = y.length;
-		//console.error('x has more items in it, the last ' + (x.length - shortestArrayLength) + ' item(s) will be ignored');
-	}
-	else
-	{
-		shortestArrayLength = x.length;
-		//console.error('y has more items in it, the last ' + (y.length - shortestArrayLength) + ' item(s) will be ignored');
-	}
- 
-	var xy = [];
-	var x2 = [];
-	var y2 = [];
- 
-	for(var i=0; i<shortestArrayLength; i++)
-	{
-		xy.push(x[i] * y[i]);
-		x2.push(x[i] * x[i]);
-		y2.push(y[i] * y[i]);
-	}
- 
-	var sum_x = 0;
-	var sum_y = 0;
-	var sum_xy = 0;
-	var sum_x2 = 0;
-	var sum_y2 = 0;
- 
-	for(var i=0; i<shortestArrayLength; i++)
-	{
-		/*
-		sum_x += parseFloat(x[i]);
-		sum_y += parseFloat(y[i]);
-		sum_xy += parseFloat(xy[i]);
-		sum_x2 += parseFloat(x2[i]);
-		sum_y2 += parseFloat(y2[i]);
-		*/
-		/*
-		sum_x += x[i];
-		sum_y += y[i];
-		sum_xy += xy[i];
-		sum_x2 += x2[i];
-		sum_y2 += y2[i];
-		*/
-		sum_x = parseFloat(sum_x) + parseFloat(x[i]);
-		sum_y = parseFloat(sum_y) + parseFloat(y[i]);
-		sum_xy = parseFloat(sum_xy) + parseFloat(xy[i]);
-		sum_x2 = parseFloat(sum_x2) + parseFloat(x2[i]);
-		sum_y2 = parseFloat(sum_y2) + parseFloat(y2[i]);
-	}
- 
- 	//alert("shortestArrayLength="+parseFloat(shortestArrayLength)+", sum_xy="+sum_xy+", sum_x * sum_y="+(sum_x * sum_y));
-
-	
-	var step1 = (parseFloat(shortestArrayLength) * parseFloat(sum_xy)) - (parseFloat(sum_x) * parseFloat(sum_y));
-	var step2 = (parseFloat(shortestArrayLength) * parseFloat(sum_x2)) - (parseFloat(sum_x) * parseFloat(sum_x));
-	var step3 = (parseFloat(shortestArrayLength) * parseFloat(sum_y2)) - (parseFloat(sum_y) * parseFloat(sum_y));
-/*
-
-	var step1 = (shortestArrayLength * sum_xy) - (sum_x * sum_y);
-	var step2 = (shortestArrayLength * sum_x2) - (sum_x * sum_x);
-	var step3 = (shortestArrayLength * sum_y2) - (sum_y * sum_y);
-*/	
-	var step4 = Math.sqrt(step2 * step3);
-	answer = step1 / step4;
-	
-	/*
-	 * To prevent divide by Zero situation
-	 */
-	if(step1==0)
-		answer = 0;
-	
-	//alert("step1="+step1+", step4="+step4+", answer="+answer);
- 
-	return answer;
-}//end pearsoncorrelation
-
-
 
 function showResults()
 {
@@ -909,9 +822,14 @@ function showResults()
 						/*
 						 * Cumulative visualization
 						 */
+						$("<div class='col-md-6 row' id='cumulative-left'><h5>"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
 						if(count1 > count2)
 						{
-							$("<div class='col-md-6 row' id='cumulative-left'><h5>"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
+							
+							//$('.bigCircle').css({ width: '200px', height: '300px' });
+							alert("hello");
+							//$('<style>.someClass {color: red;} input::-webkit-outer-spin-button: {display: none;}</style>').appendTo('head'); 							
+							$('<style>.bigCircle{color:red; width:300px; background-color:red;}</style>'); 
 							
 							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count1+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left");
@@ -924,8 +842,6 @@ function showResults()
 						if(count1 == count2)
 						{
 			
-			                $("<div class='col-md-6 row' id='cumulative-left'><h5>"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
-			
 							$("<div class='col-xs-6'><div class='bigCircle green1'> <div class='big_white'>"+count1+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left");
 							
@@ -936,7 +852,7 @@ function showResults()
 						if(count1 < count2)
 						{
 			
-			                $("<div class='col-md-6 row' id='cumulative-left'><h5>"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
+			                //$("<div class='col-md-6 row' id='cumulative-left'><h5>"+nameVar1+"=Yes<h5></div>").appendTo("#show-cumulative-charts");
 			
 							$("<div class='col-xs-6'><div class='smallCircle green1'> <div class='big_white'>"+count1+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-left");
@@ -946,9 +862,10 @@ function showResults()
 						}
 						
 			
+						$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
 						if(count3 > count4)
 						{
-							$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
+							
 							
 							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count3+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right");
@@ -959,7 +876,7 @@ function showResults()
 						
 						if(count3 == count4)
 						{
-							$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
+							//$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
 							
 							$("<div class='col-xs-6'><div class='bigCircle orange1'> <div class='big_white'>"+count3+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right");
@@ -970,7 +887,7 @@ function showResults()
 						
 						if(count3 < count4)
 						{
-							$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
+							//$("<div class='col-md-6 row'id='cumulative-right'><h5>"+nameVar1+"=No</h5>").appendTo("#show-cumulative-charts");
 							
 							$("<div class='col-xs-6'><div class='smallCircle orange1'> <div class='big_white'>"+count3+
 							"</div> <span style='color:white; font-size:0.8em'>Total</span> </div>"+nameVar2+": Yes</div>").appendTo("#cumulative-right");
@@ -1501,14 +1418,14 @@ function showResults()
 									if (values1[i] == 1)
 									{
 										if(values2[i]!=null && values2[i]!='')
-											d1.push([i, values2[i]]);
+											d1.push([i+0.5, values2[i]]);
 									}
 										
 				
 									if (values1[i] == 0)
 									{
 										if(values2[i]!=null && values2[i]!='')
-											d2.push([i, values2[i]]);
+											d2.push([i+0.5, values2[i]]);
 									}
 										
 								}//end for
@@ -1538,14 +1455,14 @@ function showResults()
 									if (valuesPP1[i] == 1)
 									{
 										if(valuesPP2[i]!=null && valuesPP2[i]!='')
-											d1.push([i, valuesPP2[i]]);
+											d1.push([i+0.35, valuesPP2[i]]);
 									}
 										
 				
 									if (valuesPP1[i] == 0)
 									{
 										if(valuesPP2[i]!=null && valuesPP2[i]!='')
-											d2.push([i, valuesPP2[i]]);
+											d2.push([i+0.35, valuesPP2[i]]);
 									}
 										
 								}//end for
@@ -1570,12 +1487,12 @@ function showResults()
 									if (values2[i] == 1)
 									{
 										if(values1[i]!=null && values1[i]!='')
-											d1.push([i, values1[i]]);
+											d1.push([i+0.5, values1[i]]);
 									}
 									if (values2[i] == 0)
 									{
 										if(values1[i]!=null && values1[i]!='')
-											d2.push([i+0.45, values1[i]]);
+											d2.push([i+0.5, values1[i]]);
 									}
 										
 								}//end for
@@ -1604,12 +1521,12 @@ function showResults()
 									if (valuesPP2[i] == 1)
 									{
 										if(valuesPP1[i]!=null && valuesPP1[i]!='')
-											d1.push([i, valuesPP1[i]]);
+											d1.push([i+0.5, valuesPP1[i]]);
 									}
 									if (valuesPP2[i] == 0)
 									{
 										if(valuesPP1[i]!=null && valuesPP1[i]!='')
-											d2.push([i, valuesPP1[i]]);
+											d2.push([i+0.5, valuesPP1[i]]);
 									}
 										
 								}//end for
@@ -1814,7 +1731,7 @@ function showResults()
 						
 						if(participantId=="Me")
 						{
-							//user_correlationValue = mathUtils.getPearsonsCorrelation(valuesPP1, valuesPP2);
+							
 
 							if(timesPP.length==0)
 							{
@@ -1856,7 +1773,7 @@ function showResults()
 							
 						if(participantId=="All")
 						{
-							//user_correlationValue = mathUtils.getPearsonsCorrelation(values1, values2);
+							
 							
 							for (var i = 0; i < values1.length; ++i) 
 							{
@@ -3224,7 +3141,7 @@ function showComparison()
 												//max: ticks.length+0.5,
 												ticks : xlabels,
 												rotateTicks : 90,
-												panRange: [-0.2, times.length],
+												panRange: [-0.2, xlabels.length],
 												axisLabel: ' ',
 											},
 											yaxis :
@@ -3908,7 +3825,7 @@ function showComparison()
 								
 								var xlabel = [];
 								//xlabel.push(i+0.3, times[i]);
-								xlabel.push(i+0.5, newDate);
+								xlabel.push(i+0.25, newDate);
 								xlabels.push(xlabel);
 							}//end for
 				
@@ -3931,7 +3848,7 @@ function showComparison()
 									
 									var xlabel = [];
 									//xlabel.push(x, "Day"+ (x+1)+ " ");
-									xlabel.push(x+0.5, newDate);
+									xlabel.push(x+0.25, newDate);
 									xlabels.push(xlabel);
 									
 									user_d1.push([x, "nil"]);
@@ -4087,7 +4004,7 @@ function showComparison()
 							
 							var xlabel = [];
 							//xlabel.push(i+0.3, times[i]);
-							xlabel.push(i+0.5, newDate);
+							xlabel.push(i+0.25, newDate);
 							xlabels.push(xlabel);
 						}//end for
 			
@@ -4110,7 +4027,7 @@ function showComparison()
 								
 								var xlabel = [];
 								//xlabel.push(x, "Day"+ (x+1)+ " ");
-								xlabel.push(x+0.5, newDate);
+								xlabel.push(x+0.25, newDate);
 								xlabels.push(xlabel);
 								
 								friend_d1.push([x, "nil"]);
@@ -4181,7 +4098,7 @@ function showComparison()
 									
 									var xlabel = [];
 									//xlabel.push(x, "Day"+ (x+1)+ " ");
-									xlabel.push(x+0.5, newDate);
+									xlabel.push(x+0.25, newDate);
 									xlabels.push(xlabel);
 									
 									d1.push([x, "nil"]);
@@ -4238,7 +4155,7 @@ function showComparison()
 									//max: ticks.length+0.5,
 									ticks : xlabels,
 									rotateTicks : 90,
-									panRange: [-0.2, times.length],
+									panRange: [-0.2, xlabels.length],
 									axisLabel: ' ',
 								},
 								
@@ -6843,7 +6760,7 @@ function showAllResults()
 									//max: ticks.length+0.5,
 									ticks : xlabels,
 									rotateTicks : 90,
-									panRange: [-0.2, times.length],
+									panRange: [-0.2, xlabels.length],
 									axisLabel: ' ',
 								},
 								yaxis :

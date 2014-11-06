@@ -70,7 +70,7 @@ function addVariable() {
     option1.value = "score";
     
     var option2 = document.createElement("option");
-    option2.text = "Binary";
+    option2.text = "Yes/No";
     option2.value = "binary";
     
     var option3 = document.createElement("option");
