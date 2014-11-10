@@ -6,7 +6,7 @@ Author: Ming Ki Chong (mingki@acm.org)
 //Switch debug mode on/off
 $DEBUG = false;
 $CRON_TEST = true;
-$CRON_SERVER_ADDR = '192.186.247.218';//godaddy cron server address
+$CRON_SERVER_ADDR = '************';//godaddy cron server address
 
 date_default_timezone_set('Europe/London'); //set to UK timezone
 
@@ -30,10 +30,10 @@ include 'check_day_of_week.php'; //functions for checking if today is weekday/we
 $IsTodayWeekday = IsTodayWeekday();
 
 //Database login information
-$DB_HOST = "192.186.247.218";
-$DB_USER = "i769690_wp1";
-$DB_PASS = "L(XSQCgQ1l64(&0";
-$DB_NAME = "i769690_wp1";
+$DB_HOST = "************";
+$DB_USER = "************";
+$DB_PASS = "************";
+$DB_NAME = "************";
 $DB_TABLE = "wp_bp_experiments_notifications";
 
 $HTML_NL = "<br/>";
