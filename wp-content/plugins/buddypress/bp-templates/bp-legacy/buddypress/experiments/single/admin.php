@@ -99,14 +99,14 @@
 			<strong><?php _e( 'All experiment members', 'buddypress' ); ?></strong>
 		</label>
 
-		<label>
+		<!--label>
 			<input type="radio" name="experiment-invite-status" value="mods"<?php bp_experiment_show_invite_status_setting( 'mods' ); ?> />
 			<strong><?php _e( 'Experiment admins and mods only', 'buddypress' ); ?></strong>
-		</label>
+		</label-->
 
 		<label>
 			<input type="radio" name="experiment-invite-status" value="admins"<?php bp_experiment_show_invite_status_setting( 'admins' ); ?> />
-			<strong><?php _e( 'Experiment admins only', 'buddypress' ); ?></strong>
+			<strong><?php _e( 'Only you', 'buddypress' ); ?></strong>
 		</label>
  	</div>
 
@@ -259,7 +259,7 @@
 
 							<?php if ( bp_get_experiment_member_is_banned() ) _e( '(banned)', 'buddypress' ); ?>
 
-							<span class="small">
+							<!--span class="small">
 
 							<?php if ( bp_get_experiment_member_is_banned() ) : ?>
 
@@ -277,7 +277,7 @@
 
 								<?php do_action( 'bp_experiment_manage_members_admin_item' ); ?>
 
-							</span>
+							</span-->
 						</h5>
 					</li>
 
